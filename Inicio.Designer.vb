@@ -46,6 +46,8 @@ Partial Class Inicio
         '
         Me.Button1.BackColor = System.Drawing.Color.OrangeRed
         Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(308, 12)
         Me.Button1.Name = "Button1"
@@ -62,7 +64,7 @@ Partial Class Inicio
         Me.Panel.Controls.Add(Me.Button1)
         Me.Panel.Location = New System.Drawing.Point(-1, 0)
         Me.Panel.Name = "Panel"
-        Me.Panel.Size = New System.Drawing.Size(601, 59)
+        Me.Panel.Size = New System.Drawing.Size(369, 59)
         Me.Panel.TabIndex = 1
         '
         'PictureBox1
@@ -165,6 +167,7 @@ Partial Class Inicio
         Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
         Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.Location = New System.Drawing.Point(224, 222)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(24, 24)
@@ -174,6 +177,8 @@ Partial Class Inicio
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.DarkOrange
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Location = New System.Drawing.Point(111, 264)
         Me.Button3.Name = "Button3"

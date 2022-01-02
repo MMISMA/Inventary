@@ -1,4 +1,9 @@
-﻿Public Class Inicio
+﻿Imports MySql.Data
+Imports MySql.Data.MySqlClient
+
+Public Class Inicio
+    'im conexion As New MySqlConnection("server=localHost; database=inventarios; user id=root; password=''")
+
     Dim puntoX, puntoY As Integer
     Dim mover As Boolean
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -68,13 +73,41 @@
     End Sub
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
-        If txtusuario.Text = "Admin" And txtcontra.Text = "1234" Then
-            MenuI.Show()
-            MsgBox("Bienvenido", vbInformation)
-            Me.Hide()
-        Else
-            MsgBox("Usuario o contraseña incorrectos", vbInformation)
-        End If
+        'Try
+        '    conexion.Open()
+        '    MsgBox("Exito de conexión")
+        '    conexion.Close()
+        MenuI.Show()
+        MsgBox("Bienvenido", vbInformation)
+        Me.Hide()
+        'Catch ex As Exception
+        '    conexion.Close()
+        '    MsgBox("Fallo de conexión")
+        'End Try
+        ' If txtusuario.Text = "Admin" And txtcontra.Text = "1234" Then
+        '     Else
+        '    MsgBox("Usuario o contraseña incorrectos", vbInformation)
+        '     End If
+    End Sub
+
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
+
+    End Sub
+
+    Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            Dim conexion As New MySqlConnectionStringBuilder()
+            conexion.Server = "localhost"
+            conexion.UserID = "root"
+            conexion.Password = "root"
+            conexion.Database = "inventarios"
+
+            Dim con As New MySqlConnection(conexion.ToString())
+            con.Open()
+            MsgBox("La conexion se realizo")
+        Catch ex As Exception
+            MsgBox("No se pudo conectar " & ex.Message)
+        End Try
     End Sub
 
     Private Sub LinkLabel1_LinkClicked_1(sender As Object, e As LinkLabelLinkClickedEventArgs)

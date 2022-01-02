@@ -110,6 +110,8 @@ Partial Class Register
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.DarkOrange
+        Me.Button3.FlatAppearance.BorderSize = 0
+        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button3.Location = New System.Drawing.Point(235, 341)
         Me.Button3.Name = "Button3"
@@ -153,6 +155,8 @@ Partial Class Register
         'Button1
         '
         Me.Button1.BackColor = System.Drawing.Color.OrangeRed
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(543, 12)
         Me.Button1.Name = "Button1"

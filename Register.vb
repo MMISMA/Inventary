@@ -4,6 +4,8 @@ Imports MySql.Data.MySqlClient
 Public Class Register
     Dim conexion As New MySqlConnection
     Dim comandos As New MySqlCommand
+    Dim adaptador As New MySqlDataAdapter
+    Dim datos As New DataSet
 
     Dim puntoX, puntoY As Integer
     Dim mover As Boolean
@@ -28,17 +30,7 @@ Public Class Register
         Me.Hide()
     End Sub
 
-    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        'Try
-        '    comandos = New MySqlCommand("INSERT INTO `rol`(id,nombre)" & Chr(13) &
-        '                                "VALUES(@id,@nombre)", conexion)
-        '    comandos.Parameters.AddWithValue("@id", ttttt)
-        '    comandos.Parameters.AddWithValue("@nombre", rrrr)
-        '    comandos.ExecuteNonQuery()
-        '    MsgBox("Ingresado Correctamente")
-        'Catch ex As Exception
-        '    MsgBox(ex.Message)
-        'End Try
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnregistrar.Click
         Try
             comandos = New MySqlCommand("INSERT INTO `usuario`(id,nombre,usuario,contraseña,rol)" & Chr(13) &
                                         "VALUES(@id,@nombre,@usuario,@contraseña,@rol)", conexion)
@@ -69,25 +61,62 @@ Public Class Register
         End Try
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim eliminar As String
-        Dim si As Byte
-        si = MsgBox("¿Desea eliminar a: " & txtnombre.Text, vbYesNo, "Eliminar")
-        If si = 6 Then
-            eliminar = "DELETE FROM usuario WHERE nombre='" & txtnombre.Text & "'"
-            comandos = New MySqlCommand(eliminar, conexion)
-            comandos.ExecuteNonQuery()
-            MsgBox(txtnombre.Text & " ha sido eliminado")
-            txtid.Text = ""
-            txtnombre.Text = ""
-            txtusuario.Text = ""
-            txtcontra.Text = ""
-            txtrol.Text = ""
-        End If
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
+        EliminarUsuario.Show()
+        Me.Hide()
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
         Inicio.Close()
+    End Sub
+
+
+    Private Sub btnactualizar_Click(sender As Object, e As EventArgs) Handles btnactualizar.Click
+        Dim actualizar As String
+        actualizar = "UPDATE usuario SET id='" & txtid.Text & "', nombre='" & txtnombre.Text & "', usuario='" & txtusuario.Text & "', contraseña='" & txtcontra.Text & "', rol='" & txtrol.Text & "'WHERE id='" & txtid.Text & "'"
+        comandos = New MySqlCommand(actualizar, conexion)
+        comandos.ExecuteNonQuery()
+        MsgBox("Practica Actualizada")
+    End Sub
+    Private Sub btneliminar_MouseHover(sender As Object, e As EventArgs) Handles btneliminar.MouseHover
+        TTMSG.SetToolTip(btneliminar, "Eliminar un usuario")
+    End Sub
+
+    Private Sub btnregistrar_MouseHover(sender As Object, e As EventArgs) Handles btnregistrar.MouseHover
+        TTMSG.SetToolTip(btneliminar, "Para registrar ingresa todos los datos")
+    End Sub
+
+    Private Sub txtcontra_MouseHover(sender As Object, e As EventArgs) Handles txtcontra.MouseHover
+        TTMSG.SetToolTip(txtcontra, "Ingresa una contraseña")
+    End Sub
+
+    Private Sub txtid_MouseHover(sender As Object, e As EventArgs) Handles txtid.MouseHover
+        TTMSG.SetToolTip(txtid, "Ingresa un numero")
+    End Sub
+
+    Private Sub txtnombre_MouseHover(sender As Object, e As EventArgs) Handles txtnombre.MouseHover
+        TTMSG.SetToolTip(txtnombre, "Ingresa un nombre")
+    End Sub
+
+    Private Sub txtusuario_MouseHover(sender As Object, e As EventArgs) Handles txtusuario.MouseHover
+        TTMSG.SetToolTip(txtusuario, "Ingresa un nombre de usuario")
+    End Sub
+    Private Sub txtrol_MouseHover(sender As Object, e As EventArgs) Handles txtrol.MouseHover
+        TTMSG.SetToolTip(txtrol, "Ingresa un numero, 1)Administrador 2)Jefe de departamento 3)Asistente")
+    End Sub
+
+    Private Sub btnvusuarios_Click(sender As Object, e As EventArgs) Handles btnvusuarios.Click
+        Dim consulta As String
+        consulta = "SELECT * FROM usuario"
+        adaptador = New MySqlDataAdapter(consulta, conexion)
+        datos = New DataSet
+        adaptador.Fill(datos, "usuario")
+        DataGridView1.DataSource = datos
+        DataGridView1.DataMember = "usuario"
+    End Sub
+
+    Private Sub btnactualizar_MouseHover(sender As Object, e As EventArgs) Handles btnactualizar.MouseHover
+        TTMSG.SetToolTip(btnactualizar, "Ingrese el id que se desea actualizar junto con el resto de datos")
     End Sub
 End Class

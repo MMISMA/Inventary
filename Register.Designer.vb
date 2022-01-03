@@ -22,13 +22,14 @@ Partial Class Register
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Register))
         Me.Lusuario = New System.Windows.Forms.Label()
         Me.Lcontra = New System.Windows.Forms.Label()
         Me.txtid = New System.Windows.Forms.TextBox()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.txtcontra = New System.Windows.Forms.TextBox()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.btnregistrar = New System.Windows.Forms.Button()
         Me.Panel = New System.Windows.Forms.Panel()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -40,16 +41,21 @@ Partial Class Register
         Me.txtnombre = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtrol = New System.Windows.Forms.TextBox()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btneliminar = New System.Windows.Forms.Button()
+        Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
+        Me.btnactualizar = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.btnvusuarios = New System.Windows.Forms.Button()
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Lusuario
         '
         Me.Lusuario.AutoSize = True
         Me.Lusuario.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lusuario.Location = New System.Drawing.Point(178, 129)
+        Me.Lusuario.Location = New System.Drawing.Point(99, 129)
         Me.Lusuario.Name = "Lusuario"
         Me.Lusuario.Size = New System.Drawing.Size(32, 25)
         Me.Lusuario.TabIndex = 23
@@ -59,7 +65,7 @@ Partial Class Register
         '
         Me.Lcontra.AutoSize = True
         Me.Lcontra.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lcontra.Location = New System.Drawing.Point(121, 174)
+        Me.Lcontra.Location = New System.Drawing.Point(42, 174)
         Me.Lcontra.Name = "Lcontra"
         Me.Lcontra.Size = New System.Drawing.Size(89, 25)
         Me.Lcontra.TabIndex = 24
@@ -69,7 +75,7 @@ Partial Class Register
         '
         Me.txtid.BackColor = System.Drawing.SystemColors.Window
         Me.txtid.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtid.Location = New System.Drawing.Point(235, 125)
+        Me.txtid.Location = New System.Drawing.Point(155, 125)
         Me.txtid.Name = "txtid"
         Me.txtid.Size = New System.Drawing.Size(138, 29)
         Me.txtid.TabIndex = 19
@@ -78,7 +84,7 @@ Partial Class Register
         '
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(219, 401)
+        Me.LinkLabel1.Location = New System.Drawing.Point(192, 407)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(171, 16)
         Me.LinkLabel1.TabIndex = 22
@@ -88,24 +94,24 @@ Partial Class Register
         'txtcontra
         '
         Me.txtcontra.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtcontra.Location = New System.Drawing.Point(235, 264)
+        Me.txtcontra.Location = New System.Drawing.Point(155, 264)
         Me.txtcontra.Name = "txtcontra"
         Me.txtcontra.Size = New System.Drawing.Size(138, 29)
         Me.txtcontra.TabIndex = 20
         Me.txtcontra.UseSystemPasswordChar = True
         '
-        'Button3
+        'btnregistrar
         '
-        Me.Button3.BackColor = System.Drawing.Color.DarkOrange
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(206, 351)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(138, 33)
-        Me.Button3.TabIndex = 21
-        Me.Button3.Text = "Registrar"
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.btnregistrar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnregistrar.FlatAppearance.BorderSize = 0
+        Me.btnregistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnregistrar.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnregistrar.Location = New System.Drawing.Point(12, 351)
+        Me.btnregistrar.Name = "btnregistrar"
+        Me.btnregistrar.Size = New System.Drawing.Size(101, 33)
+        Me.btnregistrar.TabIndex = 21
+        Me.btnregistrar.Text = "Registrar"
+        Me.btnregistrar.UseVisualStyleBackColor = False
         '
         'Panel
         '
@@ -166,7 +172,7 @@ Partial Class Register
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(124, 221)
+        Me.Label2.Location = New System.Drawing.Point(45, 221)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(86, 25)
         Me.Label2.TabIndex = 31
@@ -176,7 +182,7 @@ Partial Class Register
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(93, 268)
+        Me.Label4.Location = New System.Drawing.Point(14, 268)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(117, 25)
         Me.Label4.TabIndex = 32
@@ -185,7 +191,7 @@ Partial Class Register
         'txtusuario
         '
         Me.txtusuario.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtusuario.Location = New System.Drawing.Point(235, 217)
+        Me.txtusuario.Location = New System.Drawing.Point(155, 217)
         Me.txtusuario.Name = "txtusuario"
         Me.txtusuario.Size = New System.Drawing.Size(138, 29)
         Me.txtusuario.TabIndex = 29
@@ -193,7 +199,7 @@ Partial Class Register
         'txtnombre
         '
         Me.txtnombre.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtnombre.Location = New System.Drawing.Point(235, 174)
+        Me.txtnombre.Location = New System.Drawing.Point(155, 174)
         Me.txtnombre.Name = "txtnombre"
         Me.txtnombre.Size = New System.Drawing.Size(138, 29)
         Me.txtnombre.TabIndex = 30
@@ -202,7 +208,7 @@ Partial Class Register
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(166, 310)
+        Me.Label5.Location = New System.Drawing.Point(87, 310)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(44, 25)
         Me.Label5.TabIndex = 34
@@ -211,23 +217,57 @@ Partial Class Register
         'txtrol
         '
         Me.txtrol.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtrol.Location = New System.Drawing.Point(235, 306)
+        Me.txtrol.Location = New System.Drawing.Point(155, 306)
         Me.txtrol.Name = "txtrol"
         Me.txtrol.Size = New System.Drawing.Size(138, 29)
         Me.txtrol.TabIndex = 33
         '
-        'Button2
+        'btneliminar
         '
-        Me.Button2.BackColor = System.Drawing.Color.Bisque
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Georgia", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(350, 351)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(77, 33)
-        Me.Button2.TabIndex = 35
-        Me.Button2.Text = "Eliminar"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btneliminar.BackColor = System.Drawing.Color.Bisque
+        Me.btneliminar.FlatAppearance.BorderSize = 0
+        Me.btneliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btneliminar.Font = New System.Drawing.Font("Georgia", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btneliminar.Location = New System.Drawing.Point(234, 352)
+        Me.btneliminar.Name = "btneliminar"
+        Me.btneliminar.Size = New System.Drawing.Size(77, 33)
+        Me.btneliminar.TabIndex = 35
+        Me.btneliminar.Text = "Eliminar"
+        Me.btneliminar.UseVisualStyleBackColor = False
+        '
+        'btnactualizar
+        '
+        Me.btnactualizar.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.btnactualizar.FlatAppearance.BorderSize = 0
+        Me.btnactualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnactualizar.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnactualizar.Location = New System.Drawing.Point(119, 351)
+        Me.btnactualizar.Name = "btnactualizar"
+        Me.btnactualizar.Size = New System.Drawing.Size(109, 33)
+        Me.btnactualizar.TabIndex = 36
+        Me.btnactualizar.Text = "Actualizar"
+        Me.btnactualizar.UseVisualStyleBackColor = False
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(342, 169)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(242, 150)
+        Me.DataGridView1.TabIndex = 37
+        '
+        'btnvusuarios
+        '
+        Me.btnvusuarios.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnvusuarios.FlatAppearance.BorderSize = 0
+        Me.btnvusuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnvusuarios.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnvusuarios.Location = New System.Drawing.Point(399, 129)
+        Me.btnvusuarios.Name = "btnvusuarios"
+        Me.btnvusuarios.Size = New System.Drawing.Size(138, 33)
+        Me.btnvusuarios.TabIndex = 38
+        Me.btnvusuarios.Text = "Ver Usuarios"
+        Me.btnvusuarios.UseVisualStyleBackColor = False
         '
         'Register
         '
@@ -235,7 +275,10 @@ Partial Class Register
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(600, 450)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnvusuarios)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.btnactualizar)
+        Me.Controls.Add(Me.btneliminar)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.txtrol)
         Me.Controls.Add(Me.Label2)
@@ -249,7 +292,7 @@ Partial Class Register
         Me.Controls.Add(Me.txtid)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.txtcontra)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.btnregistrar)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Name = "Register"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -257,6 +300,7 @@ Partial Class Register
         Me.Panel.ResumeLayout(False)
         Me.Panel.PerformLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -267,7 +311,7 @@ Partial Class Register
     Friend WithEvents txtid As TextBox
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents txtcontra As TextBox
-    Friend WithEvents Button3 As Button
+    Friend WithEvents btnregistrar As Button
     Friend WithEvents Panel As Panel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents Label1 As Label
@@ -279,5 +323,9 @@ Partial Class Register
     Friend WithEvents txtnombre As TextBox
     Friend WithEvents Label5 As Label
     Friend WithEvents txtrol As TextBox
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btneliminar As Button
+    Friend WithEvents TTMSG As ToolTip
+    Friend WithEvents btnactualizar As Button
+    Friend WithEvents DataGridView1 As DataGridView
+    Friend WithEvents btnvusuarios As Button
 End Class

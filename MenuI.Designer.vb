@@ -28,13 +28,13 @@ Partial Class MenuI
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Button5 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PanelMenu = New System.Windows.Forms.Panel()
-        Me.Button5 = New System.Windows.Forms.Button()
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -99,6 +99,20 @@ Partial Class MenuI
         Me.Panel1.Size = New System.Drawing.Size(115, 480)
         Me.Panel1.TabIndex = 34
         '
+        'Button5
+        '
+        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button5.FlatAppearance.BorderSize = 0
+        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button5.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button5.Location = New System.Drawing.Point(0, 320)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(115, 51)
+        Me.Button5.TabIndex = 40
+        Me.Button5.Text = "Inventarios"
+        Me.Button5.UseVisualStyleBackColor = False
+        '
         'Button7
         '
         Me.Button7.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -110,7 +124,7 @@ Partial Class MenuI
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(115, 51)
         Me.Button7.TabIndex = 39
-        Me.Button7.Text = "Equipo de Laboratorio"
+        Me.Button7.Text = " Laboratorio de pesados"
         Me.Button7.UseVisualStyleBackColor = False
         '
         'Button6
@@ -175,20 +189,6 @@ Partial Class MenuI
         Me.PanelMenu.Name = "PanelMenu"
         Me.PanelMenu.Size = New System.Drawing.Size(466, 458)
         Me.PanelMenu.TabIndex = 35
-        '
-        'Button5
-        '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(0, 320)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(115, 51)
-        Me.Button5.TabIndex = 40
-        Me.Button5.Text = "Movimientos"
-        Me.Button5.UseVisualStyleBackColor = False
         '
         'MenuI
         '

@@ -100,10 +100,16 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Movimiento.Designer.vb">
-      <DependentUpon>Movimiento.vb</DependentUpon>
+    <Compile Include="EliminarUsuario.Designer.vb">
+      <DependentUpon>EliminarUsuario.vb</DependentUpon>
     </Compile>
-    <Compile Include="Movimiento.vb">
+    <Compile Include="EliminarUsuario.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventarios.Designer.vb">
+      <DependentUpon>Inventarios.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Inventarios.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Residuos.Designer.vb">
@@ -159,16 +165,19 @@
     <Compile Include="Practicas.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="E_Lab.Designer.vb">
-      <DependentUpon>E_Lab.vb</DependentUpon>
+    <Compile Include="LaboratorioPesados.Designer.vb">
+      <DependentUpon>LaboratorioPesados.vb</DependentUpon>
     </Compile>
-    <Compile Include="E_Lab.vb">
+    <Compile Include="LaboratorioPesados.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Movimiento.resx">
-      <DependentUpon>Movimiento.vb</DependentUpon>
+    <EmbeddedResource Include="EliminarUsuario.resx">
+      <DependentUpon>EliminarUsuario.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventarios.resx">
+      <DependentUpon>Inventarios.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Residuos.resx">
       <DependentUpon>Residuos.vb</DependentUpon>
@@ -194,8 +203,8 @@
     <EmbeddedResource Include="Practicas.resx">
       <DependentUpon>Practicas.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="E_Lab.resx">
-      <DependentUpon>E_Lab.vb</DependentUpon>
+    <EmbeddedResource Include="LaboratorioPesados.resx">
+      <DependentUpon>LaboratorioPesados.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

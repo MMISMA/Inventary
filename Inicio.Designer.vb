@@ -33,11 +33,11 @@ Partial Class Inicio
         Me.Label2 = New System.Windows.Forms.Label()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.txtcontra = New System.Windows.Forms.TextBox()
-        Me.txtusuario = New System.Windows.Forms.TextBox()
         Me.Lcontra = New System.Windows.Forms.Label()
         Me.Lusuario = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
+        Me.CBusuario = New System.Windows.Forms.ComboBox()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -132,15 +132,6 @@ Partial Class Inicio
         Me.txtcontra.TabIndex = 21
         Me.txtcontra.Text = "Contraseña"
         '
-        'txtusuario
-        '
-        Me.txtusuario.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtusuario.Location = New System.Drawing.Point(111, 168)
-        Me.txtusuario.Name = "txtusuario"
-        Me.txtusuario.Size = New System.Drawing.Size(138, 29)
-        Me.txtusuario.TabIndex = 20
-        Me.txtusuario.Text = "Usuario"
-        '
         'Lcontra
         '
         Me.Lcontra.AutoSize = True
@@ -161,19 +152,6 @@ Partial Class Inicio
         Me.Lusuario.TabIndex = 24
         Me.Lusuario.Text = "Usuario"
         '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.Location = New System.Drawing.Point(224, 222)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(24, 24)
-        Me.Button2.TabIndex = 19
-        Me.Button2.UseVisualStyleBackColor = False
-        '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.DarkOrange
@@ -187,19 +165,41 @@ Partial Class Inicio
         Me.Button3.Text = "Iniciar Sesión"
         Me.Button3.UseVisualStyleBackColor = False
         '
+        'CBusuario
+        '
+        Me.CBusuario.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBusuario.FormattingEnabled = True
+        Me.CBusuario.Location = New System.Drawing.Point(112, 168)
+        Me.CBusuario.Name = "CBusuario"
+        Me.CBusuario.Size = New System.Drawing.Size(137, 31)
+        Me.CBusuario.TabIndex = 28
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.BackgroundImage = CType(resources.GetObject("Button2.BackgroundImage"), System.Drawing.Image)
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.Location = New System.Drawing.Point(224, 222)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(24, 24)
+        Me.Button2.TabIndex = 19
+        Me.Button2.UseVisualStyleBackColor = False
+        '
         'Inicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(366, 360)
+        Me.Controls.Add(Me.CBusuario)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.LinkLabel1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.txtcontra)
-        Me.Controls.Add(Me.txtusuario)
         Me.Controls.Add(Me.Lcontra)
         Me.Controls.Add(Me.Lusuario)
         Me.Controls.Add(Me.Panel)
@@ -225,8 +225,8 @@ Partial Class Inicio
     Friend WithEvents LinkLabel1 As LinkLabel
     Friend WithEvents Button2 As Button
     Friend WithEvents txtcontra As TextBox
-    Friend WithEvents txtusuario As TextBox
     Friend WithEvents Lcontra As Label
     Friend WithEvents Lusuario As Label
     Friend WithEvents Button3 As Button
+    Friend WithEvents CBusuario As ComboBox
 End Class

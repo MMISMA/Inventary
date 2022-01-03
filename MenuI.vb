@@ -43,11 +43,11 @@
     End Sub
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
-        switchPanel(E_Lab)
+        switchPanel(LaboratorioPesados)
     End Sub
 
     Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
-        switchPanel(Movimiento)
+        switchPanel(Inventarios)
     End Sub
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click

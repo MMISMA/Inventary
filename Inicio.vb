@@ -37,11 +37,11 @@ Public Class Inicio
         End If
     End Sub
 
-    Private Sub txtusuario_TextChanged(sender As Object, e As EventArgs) Handles txtusuario.TextChanged
+    Private Sub txtusuario_TextChanged(sender As Object, e As EventArgs)
         If Label2.Text = "0" Then
             UC.Start()
             txtcontra.Text = ""
-            txtusuario.Text = ""
+            CBusuario.Text = ""
 
             Button2.BackgroundImage = My.Resources.close
             txtcontra.UseSystemPasswordChar = True
@@ -52,7 +52,7 @@ Public Class Inicio
         If Label2.Text = "0" Then
             UC.Start()
             txtcontra.Text = ""
-            txtusuario.Text = ""
+            CBusuario.Text = ""
 
             Button2.BackgroundImage = My.Resources.close
             txtcontra.UseSystemPasswordChar = True
@@ -77,12 +77,12 @@ Public Class Inicio
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         Dim consulta As String
         Dim lista As Byte
-        If txtusuario.Text <> "" And txtcontra.Text <> "" Then
-            consulta = "SELECT * FROM usuario Where usuario =' " & txtusuario.Text & "' and contraseña = '" & txtcontra.Text & "'"
+        If CBusuario.Text <> " " And txtcontra.Text <> " " Then
+            consulta = "SELECT * FROM usuario WHERE usuario ='" & CBusuario.Text & "' and contraseña ='" & txtcontra.Text & "'"
             adaptador = New MySqlDataAdapter(consulta, conexion)
             datos = New DataSet
-            adaptador.Fill(datos, "Registros")
-            lista = datos.Tables("Registros").Rows.Count
+            adaptador.Fill(datos, "nombre")
+            lista = datos.Tables("nombre").Rows.Count
         End If
         If lista <> 0 Then
             MenuI.Show()
@@ -91,7 +91,6 @@ Public Class Inicio
         Else
             MsgBox("Intente de nuevo")
         End If
-
     End Sub
 
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -99,26 +98,17 @@ Public Class Inicio
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
             conexion.Open()
             MsgBox("Conexion lograda")
+            Dim consulta As String
+            consulta = "SELECT * FROM usuario"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("usuario")
+            adaptador.Fill(datos.Tables("usuario"))
+            CBusuario.DataSource = datos.Tables("usuario")
+            CBusuario.DisplayMember = "usuario"
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
-        'Try
-        '    Dim conexion As New MySqlConnectionStringBuilder()
-        '    conexion.Server = "localhost"
-        '    conexion.UserID = "root"
-        '    conexion.Password = ""
-        '    conexion.Database = "inventarios"
-
-        '    Dim con As New MySqlConnection(conexion.ToString())
-        '    con.Open()
-        '    MsgBox("La conexion se realizo")
-        'Catch ex As Exception
-        '    MsgBox("No se pudo conectar " & ex.Message)
-        'End Try
-    End Sub
-
-    Private Sub LinkLabel1_LinkClicked_1(sender As Object, e As LinkLabelLinkClickedEventArgs)
-
     End Sub
 End Class

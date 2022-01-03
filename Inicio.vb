@@ -2,7 +2,9 @@
 Imports MySql.Data.MySqlClient
 
 Public Class Inicio
-    'im conexion As New MySqlConnection("server=localHost; database=inventarios; user id=root; password=''")
+    Dim conexion As New MySqlConnection
+    Dim adaptador As New MySqlDataAdapter
+    Dim datos As New DataSet
 
     Dim puntoX, puntoY As Integer
     Dim mover As Boolean
@@ -73,41 +75,47 @@ Public Class Inicio
     End Sub
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
-        'Try
-        '    conexion.Open()
-        '    MsgBox("Exito de conexión")
-        '    conexion.Close()
-        MenuI.Show()
-        MsgBox("Bienvenido", vbInformation)
-        Me.Hide()
-        'Catch ex As Exception
-        '    conexion.Close()
-        '    MsgBox("Fallo de conexión")
-        'End Try
-        ' If txtusuario.Text = "Admin" And txtcontra.Text = "1234" Then
-        '     Else
-        '    MsgBox("Usuario o contraseña incorrectos", vbInformation)
-        '     End If
-    End Sub
-
-    Private Sub Button4_Click(sender As Object, e As EventArgs)
+        Dim consulta As String
+        Dim lista As Byte
+        If txtusuario.Text <> "" And txtcontra.Text <> "" Then
+            consulta = "SELECT * FROM usuario Where usuario =' " & txtusuario.Text & "' and contraseña = '" & txtcontra.Text & "'"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            adaptador.Fill(datos, "Registros")
+            lista = datos.Tables("Registros").Rows.Count
+        End If
+        If lista <> 0 Then
+            MenuI.Show()
+            MsgBox("Bienvenido", vbInformation)
+            Me.Hide()
+        Else
+            MsgBox("Intente de nuevo")
+        End If
 
     End Sub
 
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
-            Dim conexion As New MySqlConnectionStringBuilder()
-            conexion.Server = "localhost"
-            conexion.UserID = "root"
-            conexion.Password = "root"
-            conexion.Database = "inventarios"
-
-            Dim con As New MySqlConnection(conexion.ToString())
-            con.Open()
-            MsgBox("La conexion se realizo")
+            conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
+            conexion.Open()
+            MsgBox("Conexion lograda")
         Catch ex As Exception
-            MsgBox("No se pudo conectar " & ex.Message)
+            MsgBox(ex.Message)
         End Try
+
+        'Try
+        '    Dim conexion As New MySqlConnectionStringBuilder()
+        '    conexion.Server = "localhost"
+        '    conexion.UserID = "root"
+        '    conexion.Password = ""
+        '    conexion.Database = "inventarios"
+
+        '    Dim con As New MySqlConnection(conexion.ToString())
+        '    con.Open()
+        '    MsgBox("La conexion se realizo")
+        'Catch ex As Exception
+        '    MsgBox("No se pudo conectar " & ex.Message)
+        'End Try
     End Sub
 
     Private Sub LinkLabel1_LinkClicked_1(sender As Object, e As LinkLabelLinkClickedEventArgs)

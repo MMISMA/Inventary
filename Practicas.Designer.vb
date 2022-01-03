@@ -24,6 +24,7 @@ Partial Class Practicas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.PanelMen = New System.Windows.Forms.Panel()
+        Me.btnListar = New System.Windows.Forms.Button()
         Me.btnActualizar = New System.Windows.Forms.Button()
         Me.btneliminar = New System.Windows.Forms.Button()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -37,7 +38,6 @@ Partial Class Practicas
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.CBseleccionarPractica = New System.Windows.Forms.ComboBox()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
         Me.PanelMen.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -45,6 +45,7 @@ Partial Class Practicas
         '
         'PanelMen
         '
+        Me.PanelMen.Controls.Add(Me.btnListar)
         Me.PanelMen.Controls.Add(Me.btnActualizar)
         Me.PanelMen.Controls.Add(Me.btneliminar)
         Me.PanelMen.Controls.Add(Me.Label5)
@@ -58,11 +59,24 @@ Partial Class Practicas
         Me.PanelMen.Controls.Add(Me.Button1)
         Me.PanelMen.Controls.Add(Me.DataGridView1)
         Me.PanelMen.Controls.Add(Me.CBseleccionarPractica)
-        Me.PanelMen.Controls.Add(Me.Label1)
         Me.PanelMen.Location = New System.Drawing.Point(0, 0)
         Me.PanelMen.Name = "PanelMen"
         Me.PanelMen.Size = New System.Drawing.Size(466, 458)
         Me.PanelMen.TabIndex = 0
+        '
+        'btnListar
+        '
+        Me.btnListar.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnListar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnListar.FlatAppearance.BorderSize = 0
+        Me.btnListar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnListar.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnListar.Location = New System.Drawing.Point(258, 40)
+        Me.btnListar.Name = "btnListar"
+        Me.btnListar.Size = New System.Drawing.Size(152, 32)
+        Me.btnListar.TabIndex = 38
+        Me.btnListar.Text = "Listar reactivos"
+        Me.btnListar.UseVisualStyleBackColor = False
         '
         'btnActualizar
         '
@@ -95,7 +109,7 @@ Partial Class Practicas
         '
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(71, 331)
+        Me.Label5.Location = New System.Drawing.Point(71, 360)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(181, 25)
         Me.Label5.TabIndex = 28
@@ -105,7 +119,7 @@ Partial Class Practicas
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label4.Location = New System.Drawing.Point(34, 273)
+        Me.Label4.Location = New System.Drawing.Point(34, 302)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(219, 25)
         Me.Label4.TabIndex = 27
@@ -115,7 +129,7 @@ Partial Class Practicas
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(220, 226)
+        Me.Label3.Location = New System.Drawing.Point(220, 255)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(32, 25)
         Me.Label3.TabIndex = 26
@@ -124,7 +138,7 @@ Partial Class Practicas
         'txtinfo
         '
         Me.txtinfo.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtinfo.Location = New System.Drawing.Point(258, 318)
+        Me.txtinfo.Location = New System.Drawing.Point(258, 347)
         Me.txtinfo.Multiline = True
         Me.txtinfo.Name = "txtinfo"
         Me.txtinfo.Size = New System.Drawing.Size(152, 53)
@@ -133,7 +147,7 @@ Partial Class Practicas
         'txtpractica
         '
         Me.txtpractica.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtpractica.Location = New System.Drawing.Point(258, 257)
+        Me.txtpractica.Location = New System.Drawing.Point(258, 286)
         Me.txtpractica.Multiline = True
         Me.txtpractica.Name = "txtpractica"
         Me.txtpractica.Size = New System.Drawing.Size(152, 55)
@@ -142,7 +156,7 @@ Partial Class Practicas
         'txtid
         '
         Me.txtid.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtid.Location = New System.Drawing.Point(258, 222)
+        Me.txtid.Location = New System.Drawing.Point(258, 251)
         Me.txtid.Name = "txtid"
         Me.txtid.Size = New System.Drawing.Size(45, 29)
         Me.txtid.TabIndex = 23
@@ -165,7 +179,7 @@ Partial Class Practicas
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(100, 176)
+        Me.Label2.Location = New System.Drawing.Point(100, 205)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(258, 25)
         Me.Label2.TabIndex = 20
@@ -178,19 +192,19 @@ Partial Class Practicas
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(316, 33)
+        Me.Button1.Location = New System.Drawing.Point(258, 3)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(85, 32)
+        Me.Button1.Size = New System.Drawing.Size(152, 32)
         Me.Button1.TabIndex = 19
-        Me.Button1.Text = "Aceptar"
+        Me.Button1.Text = "Ver practica"
         Me.Button1.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(22, 73)
+        Me.DataGridView1.Location = New System.Drawing.Point(22, 74)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(425, 67)
+        Me.DataGridView1.Size = New System.Drawing.Size(425, 129)
         Me.DataGridView1.TabIndex = 17
         '
         'CBseleccionarPractica
@@ -199,20 +213,10 @@ Partial Class Practicas
         Me.CBseleccionarPractica.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBseleccionarPractica.FormattingEnabled = True
         Me.CBseleccionarPractica.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
-        Me.CBseleccionarPractica.Location = New System.Drawing.Point(257, 33)
+        Me.CBseleccionarPractica.Location = New System.Drawing.Point(51, 23)
         Me.CBseleccionarPractica.Name = "CBseleccionarPractica"
-        Me.CBseleccionarPractica.Size = New System.Drawing.Size(43, 31)
+        Me.CBseleccionarPractica.Size = New System.Drawing.Size(201, 31)
         Me.CBseleccionarPractica.TabIndex = 16
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(127, 37)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(127, 25)
-        Me.Label1.TabIndex = 1
-        Me.Label1.Text = "Ver Practica"
         '
         'Practicas
         '
@@ -233,7 +237,6 @@ Partial Class Practicas
     End Sub
 
     Friend WithEvents PanelMen As Panel
-    Friend WithEvents Label1 As Label
     Friend WithEvents CBseleccionarPractica As ComboBox
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents Button1 As Button
@@ -248,4 +251,5 @@ Partial Class Practicas
     Friend WithEvents btneliminar As Button
     Friend WithEvents TTMSG As ToolTip
     Friend WithEvents btnActualizar As Button
+    Friend WithEvents btnListar As Button
 End Class

@@ -15,10 +15,10 @@ Public Class Practicas
             consulta = "SELECT * FROM practica"
             adaptador = New MySqlDataAdapter(consulta, conexion)
             datos = New DataSet
-            datos.Tables.Add("id")
-            adaptador.Fill(datos.Tables("id"))
-            CBseleccionarPractica.DataSource = datos.Tables("id")
-            CBseleccionarPractica.DisplayMember = "id"
+            datos.Tables.Add("nombre")
+            adaptador.Fill(datos.Tables("nombre"))
+            CBseleccionarPractica.DataSource = datos.Tables("nombre")
+            CBseleccionarPractica.DisplayMember = "nombre"
 
 
         Catch ex As Exception
@@ -28,7 +28,17 @@ Public Class Practicas
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim consulta As String
-        consulta = "SELECT * FROM practica WHERE id='" & CBseleccionarPractica.Text & "'"
+        consulta = "SELECT * FROM practica WHERE nombre='" & CBseleccionarPractica.Text & "'"
+        adaptador = New MySqlDataAdapter(consulta, conexion)
+        datos = New DataSet
+        adaptador.Fill(datos, "practica")
+        DataGridView1.DataSource = datos
+        DataGridView1.DataMember = "practica"
+    End Sub
+
+    Private Sub btnListar_Click(sender As Object, e As EventArgs) Handles btnListar.Click
+        Dim consulta As String
+        consulta = "SELECT N_inventario, cantidad, medida, practica FROM reactivo INNER JOIN practica ON reactivo.practica = practica.id WHERE practica.nombre='" & CBseleccionarPractica.Text & "'"
         adaptador = New MySqlDataAdapter(consulta, conexion)
         datos = New DataSet
         adaptador.Fill(datos, "practica")
@@ -85,4 +95,6 @@ Public Class Practicas
     Private Sub btnActualizar_MouseHover(sender As Object, e As EventArgs) Handles btnActualizar.MouseHover
         TTMSG.SetToolTip(btnActualizar, "Ingresa todos los datos de la practica a actualizar")
     End Sub
+
+
 End Class

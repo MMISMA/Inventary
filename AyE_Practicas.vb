@@ -33,9 +33,9 @@ Public Class AyE_Practicas
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
             conexion.Open()
-            MsgBox("Conexion lograda")
+            'MsgBox("Conexion lograda")
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("No se conecto con la base de datos", ex.Message)
         End Try
     End Sub
     Private Sub btnañadir_Click(sender As Object, e As EventArgs) Handles btnañadir.Click
@@ -56,11 +56,16 @@ Public Class AyE_Practicas
     End Sub
 
     Private Sub btnActualizar_Click_1(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        Dim actualizar As String
-        actualizar = "UPDATE practica SET nombre='" & txtpractica.Text & "', info='" & txtinfo.Text & "'WHERE id='" & txtid.Text & "'"
-        comandos = New MySqlCommand(actualizar, conexion)
-        comandos.ExecuteNonQuery()
-        MsgBox("Practica Actualizada")
+        Try
+            Dim actualizar As String
+            actualizar = "UPDATE practica SET nombre='" & txtpractica.Text & "', info='" & txtinfo.Text & "'WHERE id='" & txtid.Text & "'"
+            comandos = New MySqlCommand(actualizar, conexion)
+            comandos.ExecuteNonQuery()
+            MsgBox("Practica Actualizada")
+        Catch ex As Exception
+            MsgBox("Ingrese datos validos")
+        End Try
+
     End Sub
 
     Private Sub btneliminar_Click_1(sender As Object, e As EventArgs) Handles btneliminar.Click
@@ -85,11 +90,23 @@ Public Class AyE_Practicas
         TTMSG.SetToolTip(btnañadir, "Ingresa todos los datos de la practica")
     End Sub
 
-    Private Sub btneliminar_MouseHover(sender As Object, e As EventArgs)
+    Private Sub btneliminar_MouseHover(sender As Object, e As EventArgs) Handles btneliminar.MouseHover
         TTMSG.SetToolTip(btneliminar, "Para eliminar solo ingresa el id de la practica")
     End Sub
 
-    Private Sub btnActualizar_MouseHover(sender As Object, e As EventArgs)
+    Private Sub btnActualizar_MouseHover(sender As Object, e As EventArgs) Handles btnActualizar.MouseHover
         TTMSG.SetToolTip(btnActualizar, "Ingresa todos los datos de la practica a actualizar")
+    End Sub
+
+    Private Sub txtid_MouseHover(sender As Object, e As EventArgs) Handles txtid.MouseHover
+        TTMSG.SetToolTip(txtid, "Ingrese el numero de la practica")
+    End Sub
+
+    Private Sub txtinfo_MouseHover(sender As Object, e As EventArgs) Handles txtinfo.MouseHover
+        TTMSG.SetToolTip(txtinfo, "Ingrese la información de la practica")
+    End Sub
+
+    Private Sub txtpractica_MouseHover(sender As Object, e As EventArgs) Handles txtpractica.MouseHover
+        TTMSG.SetToolTip(txtpractica, "Ingrese el nombre de la practica")
     End Sub
 End Class

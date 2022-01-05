@@ -226,11 +226,11 @@ Partial Class AyEReactivos
         '
         'CBReactivo
         '
-        Me.CBReactivo.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBReactivo.Font = New System.Drawing.Font("Georgia", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBReactivo.FormattingEnabled = True
-        Me.CBReactivo.Location = New System.Drawing.Point(100, 172)
+        Me.CBReactivo.Location = New System.Drawing.Point(100, 178)
         Me.CBReactivo.Name = "CBReactivo"
-        Me.CBReactivo.Size = New System.Drawing.Size(152, 31)
+        Me.CBReactivo.Size = New System.Drawing.Size(152, 26)
         Me.CBReactivo.TabIndex = 61
         '
         'CBnInv
@@ -241,6 +241,7 @@ Partial Class AyEReactivos
         Me.CBnInv.Name = "CBnInv"
         Me.CBnInv.Size = New System.Drawing.Size(77, 31)
         Me.CBnInv.TabIndex = 62
+        Me.CBnInv.Visible = False
         '
         'AyEReactivos
         '

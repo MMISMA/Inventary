@@ -47,17 +47,17 @@ Partial Class AyE_Practicas
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(75, 316)
+        Me.Label1.Location = New System.Drawing.Point(3, 316)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(181, 25)
+        Me.Label1.Size = New System.Drawing.Size(259, 25)
         Me.Label1.TabIndex = 42
-        Me.Label1.Text = "Info de la Practica"
+        Me.Label1.Text = "Información de la Practica"
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(37, 203)
+        Me.Label6.Location = New System.Drawing.Point(43, 203)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(219, 25)
         Me.Label6.TabIndex = 41
@@ -67,16 +67,16 @@ Partial Class AyE_Practicas
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(226, 135)
+        Me.Label7.Location = New System.Drawing.Point(114, 133)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(32, 25)
+        Me.Label7.Size = New System.Drawing.Size(142, 25)
         Me.Label7.TabIndex = 40
-        Me.Label7.Text = "Id"
+        Me.Label7.Text = "N. de practica"
         '
         'txtinfo
         '
         Me.txtinfo.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtinfo.Location = New System.Drawing.Point(262, 282)
+        Me.txtinfo.Location = New System.Drawing.Point(268, 282)
         Me.txtinfo.Multiline = True
         Me.txtinfo.Name = "txtinfo"
         Me.txtinfo.Size = New System.Drawing.Size(152, 93)
@@ -85,7 +85,7 @@ Partial Class AyE_Practicas
         'txtpractica
         '
         Me.txtpractica.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtpractica.Location = New System.Drawing.Point(264, 166)
+        Me.txtpractica.Location = New System.Drawing.Point(270, 166)
         Me.txtpractica.Multiline = True
         Me.txtpractica.Name = "txtpractica"
         Me.txtpractica.Size = New System.Drawing.Size(152, 96)
@@ -94,7 +94,7 @@ Partial Class AyE_Practicas
         'txtid
         '
         Me.txtid.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtid.Location = New System.Drawing.Point(264, 131)
+        Me.txtid.Location = New System.Drawing.Point(270, 131)
         Me.txtid.Name = "txtid"
         Me.txtid.Size = New System.Drawing.Size(45, 29)
         Me.txtid.TabIndex = 37

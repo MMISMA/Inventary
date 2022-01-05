@@ -36,23 +36,34 @@ Public Class EliminarUsuario
     End Sub
 
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
-        Dim eliminar As String
-        Dim si As Byte
+        Try
+            If CBusuario.Text = "Admin" Then
+                MsgBox("No se puede eliminar el administrador")
+            ElseIf txtContraAdmin.Text = CBcontra.Text Then
+                Dim eliminar As String
+                Dim si As Byte
 
-        si = MsgBox("¿Desea eliminar a: " & CBusuario.Text, vbYesNo, "Eliminar")
-        If si = 6 Then
-            eliminar = "DELETE FROM usuario WHERE usuario='" & CBusuario.Text & "'"
-            comandos = New MySqlCommand(eliminar, conexion)
-            comandos.ExecuteNonQuery()
-            MsgBox(CBusuario.Text & " ha sido eliminado")
-        End If
+                si = MsgBox("¿Desea eliminar a: " & CBusuario.Text, vbYesNo, "Eliminar")
+                If si = 6 Then
+                    eliminar = "DELETE FROM usuario WHERE usuario='" & CBusuario.Text & "'"
+                    comandos = New MySqlCommand(eliminar, conexion)
+                    comandos.ExecuteNonQuery()
+                    MsgBox(CBusuario.Text & " ha sido eliminado")
+                End If
+            Else
+                MsgBox("Ingrese la contraseña del Administrador")
+            End If
+        Catch ex As Exception
+            MsgBox("Favor de recargar")
+        End Try
     End Sub
 
     Private Sub EliminarUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
             conexion.Open()
-            MsgBox("Conexion lograda")
+            'MsgBox("Conexion lograda")
+
             Dim consulta As String
             consulta = "SELECT * FROM usuario"
             adaptador = New MySqlDataAdapter(consulta, conexion)
@@ -62,8 +73,15 @@ Public Class EliminarUsuario
             CBusuario.DataSource = datos.Tables("usuario")
             CBusuario.DisplayMember = "usuario"
 
+            consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("contraseña")
+            adaptador.Fill(datos.Tables("contraseña"))
+            CBcontra.DataSource = datos.Tables("contraseña")
+            CBcontra.DisplayMember = "contraseña"
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("No se conecto con la base de datos", ex.Message)
         End Try
     End Sub
 

@@ -35,6 +35,7 @@ Partial Class MenuI
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PanelMenu = New System.Windows.Forms.Panel()
+        Me.Button8 = New System.Windows.Forms.Button()
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -88,6 +89,7 @@ Partial Class MenuI
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
+        Me.Panel1.Controls.Add(Me.Button8)
         Me.Panel1.Controls.Add(Me.Button5)
         Me.Panel1.Controls.Add(Me.Button7)
         Me.Panel1.Controls.Add(Me.Button6)
@@ -106,7 +108,7 @@ Partial Class MenuI
         Me.Button5.FlatAppearance.BorderSize = 0
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button5.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(0, 320)
+        Me.Button5.Location = New System.Drawing.Point(0, 270)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(115, 51)
         Me.Button5.TabIndex = 40
@@ -120,7 +122,7 @@ Partial Class MenuI
         Me.Button7.FlatAppearance.BorderSize = 0
         Me.Button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button7.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Location = New System.Drawing.Point(0, 245)
+        Me.Button7.Location = New System.Drawing.Point(0, 206)
         Me.Button7.Name = "Button7"
         Me.Button7.Size = New System.Drawing.Size(115, 51)
         Me.Button7.TabIndex = 39
@@ -134,7 +136,7 @@ Partial Class MenuI
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button6.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(0, 170)
+        Me.Button6.Location = New System.Drawing.Point(0, 142)
         Me.Button6.Name = "Button6"
         Me.Button6.Size = New System.Drawing.Size(115, 51)
         Me.Button6.TabIndex = 38
@@ -148,7 +150,7 @@ Partial Class MenuI
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(0, 95)
+        Me.Button4.Location = New System.Drawing.Point(0, 78)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(115, 51)
         Me.Button4.TabIndex = 36
@@ -162,7 +164,7 @@ Partial Class MenuI
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(0, 20)
+        Me.Button3.Location = New System.Drawing.Point(0, 14)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(115, 51)
         Me.Button3.TabIndex = 35
@@ -189,6 +191,20 @@ Partial Class MenuI
         Me.PanelMenu.Name = "PanelMenu"
         Me.PanelMenu.Size = New System.Drawing.Size(466, 458)
         Me.PanelMenu.TabIndex = 35
+        '
+        'Button8
+        '
+        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button8.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button8.FlatAppearance.BorderSize = 0
+        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button8.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button8.Location = New System.Drawing.Point(0, 334)
+        Me.Button8.Name = "Button8"
+        Me.Button8.Size = New System.Drawing.Size(115, 51)
+        Me.Button8.TabIndex = 41
+        Me.Button8.Text = "Compra"
+        Me.Button8.UseVisualStyleBackColor = False
         '
         'MenuI
         '
@@ -223,4 +239,5 @@ Partial Class MenuI
     Friend WithEvents Button6 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
+    Friend WithEvents Button8 As Button
 End Class

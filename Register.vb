@@ -32,20 +32,24 @@ Public Class Register
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnregistrar.Click
         Try
-            comandos = New MySqlCommand("INSERT INTO `usuario`(id,nombre,usuario,contraseña,rol)" & Chr(13) &
-                                        "VALUES(@id,@nombre,@usuario,@contraseña,@rol)", conexion)
-            comandos.Parameters.AddWithValue("@id", txtid.Text)
-            comandos.Parameters.AddWithValue("@nombre", txtnombre.Text)
-            comandos.Parameters.AddWithValue("@usuario", txtusuario.Text)
-            comandos.Parameters.AddWithValue("@contraseña", txtcontra.Text)
-            comandos.Parameters.AddWithValue("@rol", txtrol.Text)
-            comandos.ExecuteNonQuery()
-            MsgBox("Ingresado Correctamente")
-            txtid.Text = ""
-            txtnombre.Text = ""
-            txtusuario.Text = ""
-            txtcontra.Text = ""
-            txtrol.Text = ""
+            If txtContraAdmin.Text = CBcontra.Text Then
+                comandos = New MySqlCommand("INSERT INTO `usuario`(id,nombre,usuario,contraseña,rol)" & Chr(13) &
+                                            "VALUES(@id,@nombre,@usuario,@contraseña,@rol)", conexion)
+                comandos.Parameters.AddWithValue("@id", txtid.Text)
+                comandos.Parameters.AddWithValue("@nombre", txtnombre.Text)
+                comandos.Parameters.AddWithValue("@usuario", txtusuario.Text)
+                comandos.Parameters.AddWithValue("@contraseña", txtcontra.Text)
+                comandos.Parameters.AddWithValue("@rol", txtrol.Text)
+                comandos.ExecuteNonQuery()
+                MsgBox("Ingresado Correctamente")
+                txtid.Text = ""
+                txtnombre.Text = ""
+                txtusuario.Text = ""
+                txtcontra.Text = ""
+                txtrol.Text = ""
+            Else
+                MsgBox("Ingrese la contraseña del Administrador")
+            End If
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -56,6 +60,15 @@ Public Class Register
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
             conexion.Open()
             MsgBox("Conexion lograda")
+
+            Dim consulta As String
+            consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("contraseña")
+            adaptador.Fill(datos.Tables("contraseña"))
+            CBcontra.DataSource = datos.Tables("contraseña")
+            CBcontra.DisplayMember = "contraseña"
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

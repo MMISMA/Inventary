@@ -36,6 +36,10 @@ Partial Class EliminarUsuario
         Me.btneliminar = New System.Windows.Forms.Button()
         Me.UC = New System.Windows.Forms.Timer(Me.components)
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.txtContraAdmin = New System.Windows.Forms.TextBox()
+        Me.CBcontra = New System.Windows.Forms.ComboBox()
+        Me.LBadmin = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -44,7 +48,7 @@ Partial Class EliminarUsuario
         '
         Me.CBusuario.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBusuario.FormattingEnabled = True
-        Me.CBusuario.Location = New System.Drawing.Point(115, 181)
+        Me.CBusuario.Location = New System.Drawing.Point(115, 159)
         Me.CBusuario.Name = "CBusuario"
         Me.CBusuario.Size = New System.Drawing.Size(137, 31)
         Me.CBusuario.TabIndex = 38
@@ -84,7 +88,7 @@ Partial Class EliminarUsuario
         '
         Me.Lusuario.AutoSize = True
         Me.Lusuario.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Lusuario.Location = New System.Drawing.Point(90, 153)
+        Me.Lusuario.Location = New System.Drawing.Point(90, 131)
         Me.Lusuario.Name = "Lusuario"
         Me.Lusuario.Size = New System.Drawing.Size(186, 25)
         Me.Lusuario.TabIndex = 34
@@ -96,6 +100,7 @@ Partial Class EliminarUsuario
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Button1)
+        Me.Panel1.Controls.Add(Me.CBcontra)
         Me.Panel1.Location = New System.Drawing.Point(-1, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(369, 59)
@@ -161,11 +166,48 @@ Partial Class EliminarUsuario
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button4.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(258, 185)
+        Me.Button4.Location = New System.Drawing.Point(258, 163)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(24, 25)
         Me.Button4.TabIndex = 40
         Me.Button4.UseVisualStyleBackColor = False
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Location = New System.Drawing.Point(75, 198)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(218, 25)
+        Me.Label4.TabIndex = 41
+        Me.Label4.Text = "Contraseña del Admin"
+        '
+        'txtContraAdmin
+        '
+        Me.txtContraAdmin.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContraAdmin.Location = New System.Drawing.Point(115, 226)
+        Me.txtContraAdmin.Name = "txtContraAdmin"
+        Me.txtContraAdmin.Size = New System.Drawing.Size(137, 29)
+        Me.txtContraAdmin.TabIndex = 60
+        Me.txtContraAdmin.UseSystemPasswordChar = True
+        '
+        'CBcontra
+        '
+        Me.CBcontra.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBcontra.FormattingEnabled = True
+        Me.CBcontra.Location = New System.Drawing.Point(226, 18)
+        Me.CBcontra.Name = "CBcontra"
+        Me.CBcontra.Size = New System.Drawing.Size(76, 31)
+        Me.CBcontra.TabIndex = 61
+        '
+        'LBadmin
+        '
+        Me.LBadmin.AutoSize = True
+        Me.LBadmin.Location = New System.Drawing.Point(11, 337)
+        Me.LBadmin.Name = "LBadmin"
+        Me.LBadmin.Size = New System.Drawing.Size(70, 13)
+        Me.LBadmin.TabIndex = 62
+        Me.LBadmin.Text = "Administrador"
         '
         'EliminarUsuario
         '
@@ -173,6 +215,9 @@ Partial Class EliminarUsuario
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(366, 360)
+        Me.Controls.Add(Me.LBadmin)
+        Me.Controls.Add(Me.txtContraAdmin)
+        Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.btneliminar)
         Me.Controls.Add(Me.CBusuario)
@@ -206,4 +251,8 @@ Partial Class EliminarUsuario
     Friend WithEvents btneliminar As Button
     Friend WithEvents UC As Timer
     Friend WithEvents Button4 As Button
+    Friend WithEvents Label4 As Label
+    Friend WithEvents txtContraAdmin As TextBox
+    Friend WithEvents CBcontra As ComboBox
+    Friend WithEvents LBadmin As Label
 End Class

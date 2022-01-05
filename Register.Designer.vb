@@ -46,6 +46,10 @@ Partial Class Register
         Me.btnactualizar = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.btnvusuarios = New System.Windows.Forms.Button()
+        Me.txtContraAdmin = New System.Windows.Forms.TextBox()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.LBadmin = New System.Windows.Forms.Label()
+        Me.CBcontra = New System.Windows.Forms.ComboBox()
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -119,6 +123,7 @@ Partial Class Register
         Me.Panel.Controls.Add(Me.PictureBox1)
         Me.Panel.Controls.Add(Me.Label1)
         Me.Panel.Controls.Add(Me.Button1)
+        Me.Panel.Controls.Add(Me.CBcontra)
         Me.Panel.Location = New System.Drawing.Point(0, 0)
         Me.Panel.Name = "Panel"
         Me.Panel.Size = New System.Drawing.Size(604, 59)
@@ -253,7 +258,7 @@ Partial Class Register
         Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(342, 169)
+        Me.DataGridView1.Location = New System.Drawing.Point(342, 227)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(242, 150)
         Me.DataGridView1.TabIndex = 37
@@ -264,12 +269,50 @@ Partial Class Register
         Me.btnvusuarios.FlatAppearance.BorderSize = 0
         Me.btnvusuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnvusuarios.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnvusuarios.Location = New System.Drawing.Point(399, 129)
+        Me.btnvusuarios.Location = New System.Drawing.Point(399, 187)
         Me.btnvusuarios.Name = "btnvusuarios"
         Me.btnvusuarios.Size = New System.Drawing.Size(138, 33)
         Me.btnvusuarios.TabIndex = 38
         Me.btnvusuarios.Text = "Ver Usuarios"
         Me.btnvusuarios.UseVisualStyleBackColor = False
+        '
+        'txtContraAdmin
+        '
+        Me.txtContraAdmin.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtContraAdmin.Location = New System.Drawing.Point(399, 152)
+        Me.txtContraAdmin.Name = "txtContraAdmin"
+        Me.txtContraAdmin.Size = New System.Drawing.Size(137, 29)
+        Me.txtContraAdmin.TabIndex = 62
+        Me.txtContraAdmin.UseSystemPasswordChar = True
+        '
+        'Label6
+        '
+        Me.Label6.AutoSize = True
+        Me.Label6.Font = New System.Drawing.Font("Georgia", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Location = New System.Drawing.Point(359, 124)
+        Me.Label6.Name = "Label6"
+        Me.Label6.Size = New System.Drawing.Size(218, 25)
+        Me.Label6.TabIndex = 61
+        Me.Label6.Text = "Contraseña del Admin"
+        '
+        'LBadmin
+        '
+        Me.LBadmin.AutoSize = True
+        Me.LBadmin.Location = New System.Drawing.Point(245, 435)
+        Me.LBadmin.Name = "LBadmin"
+        Me.LBadmin.Size = New System.Drawing.Size(70, 13)
+        Me.LBadmin.TabIndex = 64
+        Me.LBadmin.Text = "Administrador"
+        Me.LBadmin.Visible = False
+        '
+        'CBcontra
+        '
+        Me.CBcontra.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBcontra.FormattingEnabled = True
+        Me.CBcontra.Location = New System.Drawing.Point(399, 16)
+        Me.CBcontra.Name = "CBcontra"
+        Me.CBcontra.Size = New System.Drawing.Size(76, 31)
+        Me.CBcontra.TabIndex = 63
         '
         'Register
         '
@@ -277,6 +320,9 @@ Partial Class Register
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(600, 450)
+        Me.Controls.Add(Me.LBadmin)
+        Me.Controls.Add(Me.txtContraAdmin)
+        Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btnvusuarios)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.btnactualizar)
@@ -330,4 +376,8 @@ Partial Class Register
     Friend WithEvents btnactualizar As Button
     Friend WithEvents DataGridView1 As DataGridView
     Friend WithEvents btnvusuarios As Button
+    Friend WithEvents txtContraAdmin As TextBox
+    Friend WithEvents Label6 As Label
+    Friend WithEvents LBadmin As Label
+    Friend WithEvents CBcontra As ComboBox
 End Class

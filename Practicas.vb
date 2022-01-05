@@ -19,8 +19,6 @@ Public Class Practicas
             adaptador.Fill(datos.Tables("nombre"))
             CBseleccionarPractica.DataSource = datos.Tables("nombre")
             CBseleccionarPractica.DisplayMember = "nombre"
-
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -28,7 +26,7 @@ Public Class Practicas
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim consulta As String
-        consulta = "SELECT * FROM practica WHERE nombre='" & CBseleccionarPractica.Text & "'"
+        consulta = "SELECT id, info FROM practica WHERE nombre='" & CBseleccionarPractica.Text & "'"
         adaptador = New MySqlDataAdapter(consulta, conexion)
         datos = New DataSet
         adaptador.Fill(datos, "practica")
@@ -38,7 +36,7 @@ Public Class Practicas
 
     Private Sub btnListar_Click(sender As Object, e As EventArgs) Handles btnListar.Click
         Dim consulta As String
-        consulta = "SELECT N_inventario, cantidad, medida, practica FROM reactivo INNER JOIN practica ON reactivo.practica = practica.id WHERE practica.nombre='" & CBseleccionarPractica.Text & "'"
+        consulta = "SELECT reactivo.N_inventario, inventario_reactivos.reactivo, reactivo.cantidad, reactivo.medida, reactivo.practica FROM reactivo INNER JOIN practica ON reactivo.practica = practica.id INNER JOIN inventario_reactivos ON inventario_reactivos.N_inventario = reactivo.N_inventario WHERE practica.nombre='" & CBseleccionarPractica.Text & "'"
         adaptador = New MySqlDataAdapter(consulta, conexion)
         datos = New DataSet
         adaptador.Fill(datos, "practica")
@@ -46,55 +44,26 @@ Public Class Practicas
         DataGridView1.DataMember = "practica"
     End Sub
 
-    Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        Dim actualizar As String
-        actualizar = "UPDATE practica SET nombre='" & txtpractica.Text & "', info='" & txtinfo.Text & "'WHERE id='" & txtid.Text & "'"
-        comandos = New MySqlCommand(actualizar, conexion)
-        comandos.ExecuteNonQuery()
-        MsgBox("Practica Actualizada")
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        AyE_Practicas.Show()
     End Sub
 
-    Private Sub btnañadir_Click(sender As Object, e As EventArgs) Handles btnañadir.Click
+    Private Sub LinkLabel2_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel2.LinkClicked
+        AyEReactivos.Show()
+    End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Try
-            comandos = New MySqlCommand("INSERT INTO `practica`(id,nombre,info)" & Chr(13) &
-                                        "VALUES(@id,@nombre,@info)", conexion)
-            comandos.Parameters.AddWithValue("@id", txtid.Text)
-            comandos.Parameters.AddWithValue("@nombre", txtpractica.Text)
-            comandos.Parameters.AddWithValue("@info", txtinfo.Text)
-            comandos.ExecuteNonQuery()
-            MsgBox("Ingresado Correctamente")
-            txtid.Text = ""
-            txtpractica.Text = ""
-            txtinfo.Text = ""
+            Dim consulta As String
+            consulta = "SELECT * FROM practica"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("nombre")
+            adaptador.Fill(datos.Tables("nombre"))
+            CBseleccionarPractica.DataSource = datos.Tables("nombre")
+            CBseleccionarPractica.DisplayMember = "nombre"
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
     End Sub
-
-    Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
-        Dim eliminar As String
-        Dim si As Byte
-
-        si = MsgBox("¿Desea eliminar la practica: " & txtid.Text, vbYesNo, "Eliminar")
-        If si = 6 Then
-            eliminar = "DELETE FROM practica WHERE id='" & txtid.Text & "'"
-            comandos = New MySqlCommand(eliminar, conexion)
-            comandos.ExecuteNonQuery()
-            MsgBox(txtid.Text & " ha sido eliminado")
-        End If
-    End Sub
-
-    Private Sub btneliminar_MouseHover(sender As Object, e As EventArgs) Handles btneliminar.MouseHover
-        TTMSG.SetToolTip(btneliminar, "Para eliminar solo ingresa el id de la practica")
-    End Sub
-
-    Private Sub btnañadir_MouseHover(sender As Object, e As EventArgs) Handles btnañadir.MouseHover
-        TTMSG.SetToolTip(btnañadir, "Ingresa todos los datos de la practica")
-    End Sub
-
-    Private Sub btnActualizar_MouseHover(sender As Object, e As EventArgs) Handles btnActualizar.MouseHover
-        TTMSG.SetToolTip(btnActualizar, "Ingresa todos los datos de la practica a actualizar")
-    End Sub
-
-
 End Class

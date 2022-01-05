@@ -72,6 +72,22 @@ Public Class EliminarUsuario
         Me.Hide()
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Try
+            Dim consulta As String
+            consulta = "SELECT * FROM usuario"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("usuario")
+            adaptador.Fill(datos.Tables("usuario"))
+            CBusuario.DataSource = datos.Tables("usuario")
+            CBusuario.DisplayMember = "usuario"
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
     End Sub

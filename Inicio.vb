@@ -93,6 +93,22 @@ Public Class Inicio
         End If
     End Sub
 
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
+        Try
+            Dim consulta As String
+            consulta = "SELECT * FROM usuario"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("usuario")
+            adaptador.Fill(datos.Tables("usuario"))
+            CBusuario.DataSource = datos.Tables("usuario")
+            CBusuario.DisplayMember = "usuario"
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+
+    End Sub
+
     Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"

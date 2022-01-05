@@ -35,6 +35,7 @@ Partial Class EliminarUsuario
         Me.Button1 = New System.Windows.Forms.Button()
         Me.btneliminar = New System.Windows.Forms.Button()
         Me.UC = New System.Windows.Forms.Timer(Me.components)
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -151,12 +152,28 @@ Partial Class EliminarUsuario
         'UC
         '
         '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.Transparent
+        Me.Button4.BackgroundImage = Global.Inventary.My.Resources.Resources.refresh
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(258, 185)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(24, 25)
+        Me.Button4.TabIndex = 40
+        Me.Button4.UseVisualStyleBackColor = False
+        '
         'EliminarUsuario
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(366, 360)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.btneliminar)
         Me.Controls.Add(Me.CBusuario)
         Me.Controls.Add(Me.Label3)
@@ -188,4 +205,5 @@ Partial Class EliminarUsuario
     Friend WithEvents Button1 As Button
     Friend WithEvents btneliminar As Button
     Friend WithEvents UC As Timer
+    Friend WithEvents Button4 As Button
 End Class

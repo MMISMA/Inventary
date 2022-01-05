@@ -38,6 +38,7 @@ Partial Class Inicio
         Me.Button3 = New System.Windows.Forms.Button()
         Me.CBusuario = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
+        Me.Button4 = New System.Windows.Forms.Button()
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -187,12 +188,28 @@ Partial Class Inicio
         Me.Button2.TabIndex = 19
         Me.Button2.UseVisualStyleBackColor = False
         '
+        'Button4
+        '
+        Me.Button4.BackColor = System.Drawing.Color.Transparent
+        Me.Button4.BackgroundImage = Global.Inventary.My.Resources.Resources.refresh
+        Me.Button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button4.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button4.FlatAppearance.BorderSize = 0
+        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button4.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(258, 170)
+        Me.Button4.Name = "Button4"
+        Me.Button4.Size = New System.Drawing.Size(24, 25)
+        Me.Button4.TabIndex = 29
+        Me.Button4.UseVisualStyleBackColor = False
+        '
         'Inicio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(366, 360)
+        Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.CBusuario)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Label3)
@@ -229,4 +246,5 @@ Partial Class Inicio
     Friend WithEvents Lusuario As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents CBusuario As ComboBox
+    Friend WithEvents Button4 As Button
 End Class

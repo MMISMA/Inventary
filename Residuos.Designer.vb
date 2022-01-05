@@ -43,12 +43,14 @@ Partial Class Residuos
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.Label8)
         Me.Panel1.Controls.Add(Me.txtfecha)
         Me.Panel1.Controls.Add(Me.txtmedida)
         Me.Panel1.Controls.Add(Me.txttipo)
@@ -120,7 +122,7 @@ Partial Class Residuos
         '
         Me.Label7.AutoSize = True
         Me.Label7.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label7.Location = New System.Drawing.Point(260, 223)
+        Me.Label7.Location = New System.Drawing.Point(254, 211)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(66, 23)
         Me.Label7.TabIndex = 56
@@ -237,6 +239,8 @@ Partial Class Residuos
         '
         'DataGridView1
         '
+        Me.DataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(12, 62)
         Me.DataGridView1.Name = "DataGridView1"
@@ -252,6 +256,16 @@ Partial Class Residuos
         Me.Label1.Size = New System.Drawing.Size(128, 25)
         Me.Label1.TabIndex = 38
         Me.Label1.Text = "Ver residuos"
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(228, 235)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(95, 14)
+        Me.Label8.TabIndex = 62
+        Me.Label8.Text = "(YYYY/MM/DD)"
         '
         'Residuos
         '
@@ -291,4 +305,5 @@ Partial Class Residuos
     Friend WithEvents Label1 As Label
     Friend WithEvents txtfecha As TextBox
     Friend WithEvents TTMSG As ToolTip
+    Friend WithEvents Label8 As Label
 End Class

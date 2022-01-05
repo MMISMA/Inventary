@@ -18,7 +18,6 @@ Public Class Inventarios
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim consulta As String
-        Dim a As String
         consulta = "SELECT * FROM inventario_l_pesados"
         adaptador = New MySqlDataAdapter(consulta, conexion)
         datos = New DataSet
@@ -29,7 +28,6 @@ Public Class Inventarios
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim consulta As String
-        Dim a As String
         consulta = "SELECT * FROM inventario_reactivos"
         adaptador = New MySqlDataAdapter(consulta, conexion)
         datos = New DataSet
@@ -40,7 +38,6 @@ Public Class Inventarios
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim consulta As String
-        Dim a As String
         consulta = "SELECT * FROM inventario_residuos"
         adaptador = New MySqlDataAdapter(consulta, conexion)
         datos = New DataSet

@@ -71,7 +71,7 @@ Public Class Register
                 MsgBox("Ingrese la contraseña del Administrador")
             End If
         Catch ex As Exception
-            MsgBox("No se pudo comunicar con la Base de Datos, no se registro")
+            MsgBox("Datos no validos")
             MsgBox(ex.Message)
         End Try
     End Sub
@@ -98,6 +98,7 @@ Public Class Register
             End If
         Catch ex As Exception
             MsgBox("Ingrese todos los datos para actualizar")
+            MsgBox(ex.Message)
         End Try
     End Sub
 

@@ -60,21 +60,25 @@ Public Class Residuos
     End Sub
 
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
-        Dim eliminar As String
-        Dim si As Byte
+        Try
+            Dim eliminar As String
+            Dim si As Byte
 
-        si = MsgBox("¿Desea eliminar la residuo: " & txtnombre.Text, vbYesNo, "Eliminar")
-        If si = 6 Then
-            eliminar = "DELETE FROM inventario_residuos WHERE nombre='" & txtnombre.Text & "'"
-            comandos = New MySqlCommand(eliminar, conexion)
-            comandos.ExecuteNonQuery()
-            MsgBox(txtnombre.Text & " ha sido eliminado")
-            txtcantidad.Text = ""
-            txtcontenedor.Text = ""
-            txtfecha.Text = ""
-            txttipo.Text = ""
-            txtmedida.Text = ""
-        End If
+            si = MsgBox("¿Desea eliminar la residuo: " & txtnombre.Text, vbYesNo, "Eliminar")
+            If si = 6 Then
+                eliminar = "DELETE FROM inventario_residuos WHERE nombre='" & txtnombre.Text & "'"
+                comandos = New MySqlCommand(eliminar, conexion)
+                comandos.ExecuteNonQuery()
+                MsgBox(txtnombre.Text & " ha sido eliminado")
+                txtcantidad.Text = ""
+                txtcontenedor.Text = ""
+                txtfecha.Text = ""
+                txttipo.Text = ""
+                txtmedida.Text = ""
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub btnver_Click(sender As Object, e As EventArgs) Handles btnver.Click

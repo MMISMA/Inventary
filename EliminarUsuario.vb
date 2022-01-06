@@ -57,7 +57,8 @@ Public Class EliminarUsuario
             CBcontra.DataSource = datos.Tables("contraseña")
             CBcontra.DisplayMember = "contraseña"
         Catch ex As Exception
-            MsgBox("No se conecto con la base de datos", ex.Message)
+            MsgBox("No se conecto con la base de datos")
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -82,6 +83,7 @@ Public Class EliminarUsuario
             End If
         Catch ex As Exception
             MsgBox("Favor de recargar")
+            MsgBox(ex.Message)
         End Try
     End Sub
 

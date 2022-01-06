@@ -34,7 +34,7 @@ Public Class Reactivos
 
     Private Sub btnañadir_Click(sender As Object, e As EventArgs) Handles btnañadir.Click
         Try
-            comandos = New MySqlCommand("INSERT INTO `inventario_reactivos`(N_inventario,reactivo,grupo,formula,tipo,id_compra,cantidad_aprox,medida)" & Chr(13) &
+            comandos = New MySqlCommand("INSERT INTO inventario_reactivos(N_inventario,reactivo,grupo,formula,tipo,id_compra,cantidad_aprox,medida)" & Chr(13) &
                                         "VALUES(@N_inventario,@reactivo,@grupo,@formula,@tipo,@id_compra,@cantidad_aprox,@medida)", conexion)
             comandos.Parameters.AddWithValue("@N_inventario", txtninventario.Text)
             comandos.Parameters.AddWithValue("@reactivo", txtreactivo.Text)
@@ -55,7 +55,7 @@ Public Class Reactivos
             txtcantA.Text = ""
             txtmedida.Text = ""
         Catch ex As Exception
-            MsgBox("No se pudo comunicar con la Base de Datos, no se añadio el reactivo")
+            MsgBox("Datos no validos")
             MsgBox(ex.Message)
         End Try
     End Sub
@@ -76,7 +76,7 @@ Public Class Reactivos
             txtcantA.Text = ""
             txtmedida.Text = ""
         Catch ex As Exception
-            MsgBox("No se pudo comunicar con la Base de Datos, no se pudo actualizar")
+            MsgBox("Datos no validos")
             MsgBox(ex.Message)
         End Try
     End Sub
@@ -102,7 +102,7 @@ Public Class Reactivos
                 txtmedida.Text = ""
             End If
         Catch ex As Exception
-            MsgBox("No se pudo comunicar con la Base de Datos, no se pudo eliminar el reactivo")
+            MsgBox("Dato no valido")
             MsgBox(ex.Message)
         End Try
     End Sub

@@ -49,7 +49,8 @@ Public Class AyEReactivos
             CBReactivo.DataSource = datos.Tables("reactivo")
             CBReactivo.DisplayMember = "reactivo"
         Catch ex As Exception
-            MsgBox("No se conecto con la base de datos", ex.Message)
+            MsgBox("No se conecto con la base de datos")
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -75,7 +76,9 @@ Public Class AyEReactivos
             txtCant.Text = ""
             txtMedida.Text = ""
         Catch ex As Exception
-            MsgBox("Llenar todos los datos", ex.Message)
+
+            MsgBox("Llenar todos los datos")
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -97,6 +100,7 @@ Public Class AyEReactivos
             MsgBox("Practica Actualizada")
         Catch ex As Exception
             MsgBox("Ingresa todos los datos")
+            MsgBox(ex.Message)
         End Try
 
     End Sub
@@ -123,7 +127,8 @@ Public Class AyEReactivos
                 MsgBox("El reactivo: " & CBReactivo.Text & " de la practica: " & CBPractica.Text & " a sido eliminado")
             End If
         Catch ex As Exception
-            MsgBox("Reactivo o practica no valida", ex.Message)
+            MsgBox("Reactivo o practica no valida")
+            MsgBox(ex.Message)
         End Try
     End Sub
 

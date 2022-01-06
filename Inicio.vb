@@ -94,22 +94,27 @@ Public Class Inicio
     End Sub
 
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim consulta As String
-        Dim lista As Byte
-        If CBusuario.Text <> " " And txtcontra.Text <> " " Then
-            consulta = "SELECT * FROM usuario WHERE usuario ='" & CBusuario.Text & "' and contraseña ='" & txtcontra.Text & "'"
-            adaptador = New MySqlDataAdapter(consulta, conexion)
-            datos = New DataSet
-            adaptador.Fill(datos, "nombre")
-            lista = datos.Tables("nombre").Rows.Count
-        End If
-        If lista <> 0 Then
-            MenuI.Show()
-            MsgBox("Bienvenido", vbInformation)
-            Me.Hide()
-        Else
-            MsgBox("Intente de nuevo")
-        End If
+        Try
+            Dim consulta As String
+            Dim lista As Byte
+            If CBusuario.Text <> " " And txtcontra.Text <> " " Then
+                consulta = "SELECT * FROM usuario WHERE usuario ='" & CBusuario.Text & "' and contraseña ='" & txtcontra.Text & "'"
+                adaptador = New MySqlDataAdapter(consulta, conexion)
+                datos = New DataSet
+                adaptador.Fill(datos, "nombre")
+                lista = datos.Tables("nombre").Rows.Count
+            End If
+            If lista <> 0 Then
+                MenuI.Show()
+                MsgBox("Bienvenido", vbInformation)
+                Me.Hide()
+            Else
+                MsgBox("Intente de nuevo")
+
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click

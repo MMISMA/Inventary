@@ -241,7 +241,6 @@ Partial Class AyEReactivos
         Me.CBnInv.Name = "CBnInv"
         Me.CBnInv.Size = New System.Drawing.Size(77, 31)
         Me.CBnInv.TabIndex = 62
-        Me.CBnInv.Visible = False
         '
         'AyEReactivos
         '

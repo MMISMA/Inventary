@@ -63,7 +63,7 @@ Public Class LaboratorioPesados
             txtantiguedad.Text = ""
             txttipo.Text = ""
         Catch ex As Exception
-            MsgBox("No se pudo comunicar con a la base de datos, no se ingreso")
+            MsgBox("Datos no validos")
             MsgBox(ex.Message)
         End Try
     End Sub
@@ -88,7 +88,7 @@ Public Class LaboratorioPesados
             txtantiguedad.Text = ""
             txttipo.Text = ""
         Catch ex As Exception
-            MsgBox("No se pudo comunicar con a la base de datos, no se actualizo")
+            MsgBox("Datos no validos")
             MsgBox(ex.Message)
         End Try
     End Sub
@@ -117,7 +117,7 @@ Public Class LaboratorioPesados
                 txttipo.Text = ""
             End If
         Catch ex As Exception
-            MsgBox("No se pudo comuncar con a la base de datos, No se elimino")
+            MsgBox("Dato no valido")
             MsgBox(ex.Message)
         End Try
     End Sub

@@ -10,7 +10,7 @@ Public Class Compra
     Private Sub Compra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
-
+            conexion.Open()
         Catch ex As Exception
             MsgBox("No se pudo conectar a la base de datos", ex.Message)
         End Try
@@ -42,7 +42,7 @@ Public Class Compra
             Dim imgcon As Byte() = ft.GetBuffer()
             fs.Close()
 
-            conexion.Open()
+
             sql = "INSERT INTO compra(id,fecha,imagen) VALUES (@id,@fecha,@imagen)"
             comandos = New MySqlCommand(sql, conexion)
             comandos.Parameters.AddWithValue("@id", txtid.Text)
@@ -50,13 +50,11 @@ Public Class Compra
             comandos.Parameters.Add("@imagen", MySqlDbType.VarBinary).Value = imgcon
 
             comandos.ExecuteNonQuery()
-            conexion.Close()
             Pfotos.Image = Nothing
             MsgBox("Imagen guardada correctamente")
             txtid.Text = ""
             txtfecha.Text = ""
         Catch ex As Exception
-            conexion.Close()
             MsgBox(ex.Message)
         End Try
     End Sub

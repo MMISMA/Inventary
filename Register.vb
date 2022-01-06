@@ -43,7 +43,6 @@ Public Class Register
                 comandos.Parameters.AddWithValue("@rol", txtrol.Text)
                 comandos.ExecuteNonQuery()
                 MsgBox("Ingresado Correctamente")
-                txtid.Text = ""
                 txtnombre.Text = ""
                 txtusuario.Text = ""
                 txtcontra.Text = ""
@@ -87,20 +86,25 @@ Public Class Register
 
     Private Sub btnactualizar_Click(sender As Object, e As EventArgs) Handles btnactualizar.Click
         Try
-            If txtnombre.Text = "Administrador" Then
-                MsgBox("No se puede actualizar al administrador")
+            If txtContraAdmin.Text = CBcontra.Text Then
+                If txtnombre.Text = "Administrador" Then
+                    MsgBox("No se puede actualizar al administrador")
+                Else
+                    Dim actualizar As String
+                    actualizar = "UPDATE usuario SET nombre='" & txtnombre.Text & "', usuario='" & txtusuario.Text & "', contraseña='" & txtcontra.Text & "', rol='" & txtrol.Text & "'WHERE nombre='" & txtnombre.Text & "'"
+                    comandos = New MySqlCommand(actualizar, conexion)
+                    comandos.ExecuteNonQuery()
+                    MsgBox("Usuario Actualizado")
+                    txtnombre.Text = ""
+                    txtusuario.Text = ""
+                    txtcontra.Text = ""
+                    txtrol.Text = ""
+                    txtContraAdmin.Text = ""
+                End If
             Else
-                Dim actualizar As String
-                actualizar = "UPDATE usuario SET nombre='" & txtnombre.Text & "', usuario='" & txtusuario.Text & "', contraseña='" & txtcontra.Text & "', rol='" & txtrol.Text & "'WHERE nombre='" & txtnombre.Text & "'"
-                comandos = New MySqlCommand(actualizar, conexion)
-                comandos.ExecuteNonQuery()
-                MsgBox("Usuario Actualizado")
-                txtnombre.Text = ""
-                txtusuario.Text = ""
-                txtcontra.Text = ""
-                txtrol.Text = ""
-                txtContraAdmin.Text = ""
+                MsgBox("Ingrese la contraseña del Administrador")
             End If
+
         Catch ex As Exception
             MsgBox("Ingrese todos los datos para actualizar")
         End Try

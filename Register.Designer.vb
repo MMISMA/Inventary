@@ -29,7 +29,6 @@ Partial Class Register
         Me.txtcontra = New System.Windows.Forms.TextBox()
         Me.btnregistrar = New System.Windows.Forms.Button()
         Me.Panel = New System.Windows.Forms.Panel()
-        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -46,6 +45,7 @@ Partial Class Register
         Me.Label6 = New System.Windows.Forms.Label()
         Me.LBadmin = New System.Windows.Forms.Label()
         Me.CBcontra = New System.Windows.Forms.ComboBox()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -64,7 +64,7 @@ Partial Class Register
         '
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Font = New System.Drawing.Font("Georgia", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LinkLabel1.Location = New System.Drawing.Point(192, 407)
+        Me.LinkLabel1.Location = New System.Drawing.Point(206, 419)
         Me.LinkLabel1.Name = "LinkLabel1"
         Me.LinkLabel1.Size = New System.Drawing.Size(171, 16)
         Me.LinkLabel1.TabIndex = 22
@@ -103,17 +103,6 @@ Partial Class Register
         Me.Panel.Name = "Panel"
         Me.Panel.Size = New System.Drawing.Size(604, 59)
         Me.Panel.TabIndex = 27
-        '
-        'PictureBox1
-        '
-        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
-        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.PictureBox1.Location = New System.Drawing.Point(12, 14)
-        Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(48, 33)
-        Me.PictureBox1.TabIndex = 2
-        Me.PictureBox1.TabStop = False
         '
         'Label1
         '
@@ -267,6 +256,17 @@ Partial Class Register
         Me.CBcontra.Name = "CBcontra"
         Me.CBcontra.Size = New System.Drawing.Size(76, 31)
         Me.CBcontra.TabIndex = 63
+        '
+        'PictureBox1
+        '
+        Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
+        Me.PictureBox1.BackgroundImage = CType(resources.GetObject("PictureBox1.BackgroundImage"), System.Drawing.Image)
+        Me.PictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PictureBox1.Location = New System.Drawing.Point(12, 14)
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.Size = New System.Drawing.Size(48, 33)
+        Me.PictureBox1.TabIndex = 2
+        Me.PictureBox1.TabStop = False
         '
         'Register
         '

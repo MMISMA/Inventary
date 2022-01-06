@@ -50,6 +50,10 @@
         switchPanel(Inventarios)
     End Sub
 
+    Private Sub btnCompra_Click(sender As Object, e As EventArgs) Handles btnCompra.Click
+        switchPanel(Compra)
+    End Sub
+
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         switchPanel(Reactivos)
     End Sub

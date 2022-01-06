@@ -100,7 +100,6 @@ Partial Class EliminarUsuario
         Me.Panel1.Controls.Add(Me.PictureBox1)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Controls.Add(Me.Button1)
-        Me.Panel1.Controls.Add(Me.CBcontra)
         Me.Panel1.Location = New System.Drawing.Point(-1, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(369, 59)
@@ -193,9 +192,11 @@ Partial Class EliminarUsuario
         '
         'CBcontra
         '
+        Me.CBcontra.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CBcontra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CBcontra.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBcontra.FormattingEnabled = True
-        Me.CBcontra.Location = New System.Drawing.Point(226, 18)
+        Me.CBcontra.Location = New System.Drawing.Point(360, 346)
         Me.CBcontra.Name = "CBcontra"
         Me.CBcontra.Size = New System.Drawing.Size(76, 31)
         Me.CBcontra.TabIndex = 61
@@ -208,6 +209,7 @@ Partial Class EliminarUsuario
         Me.LBadmin.Size = New System.Drawing.Size(70, 13)
         Me.LBadmin.TabIndex = 62
         Me.LBadmin.Text = "Administrador"
+        Me.LBadmin.Visible = False
         '
         'EliminarUsuario
         '
@@ -218,6 +220,7 @@ Partial Class EliminarUsuario
         Me.Controls.Add(Me.LBadmin)
         Me.Controls.Add(Me.txtContraAdmin)
         Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.CBcontra)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.btneliminar)
         Me.Controls.Add(Me.CBusuario)

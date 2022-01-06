@@ -49,6 +49,7 @@ Public Class EliminarUsuario
                     comandos = New MySqlCommand(eliminar, conexion)
                     comandos.ExecuteNonQuery()
                     MsgBox(CBusuario.Text & " ha sido eliminado")
+                    txtContraAdmin.Text = ""
                 End If
             Else
                 MsgBox("Ingrese la contraseña del Administrador")
@@ -109,5 +110,4 @@ Public Class EliminarUsuario
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
     End Sub
-
 End Class

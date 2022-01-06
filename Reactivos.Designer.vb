@@ -238,11 +238,11 @@ Partial Class Reactivos
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.Location = New System.Drawing.Point(0, 216)
+        Me.Label3.Location = New System.Drawing.Point(10, 216)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(117, 23)
+        Me.Label3.Size = New System.Drawing.Size(108, 23)
         Me.Label3.TabIndex = 67
-        Me.Label3.Text = "N inventario"
+        Me.Label3.Text = "N . reactivo"
         '
         'txtninventario
         '

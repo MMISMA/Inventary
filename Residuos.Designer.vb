@@ -24,6 +24,7 @@ Partial Class Residuos
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.Label8 = New System.Windows.Forms.Label()
         Me.txtfecha = New System.Windows.Forms.TextBox()
         Me.txtmedida = New System.Windows.Forms.TextBox()
         Me.txttipo = New System.Windows.Forms.TextBox()
@@ -43,7 +44,6 @@ Partial Class Residuos
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Label8 = New System.Windows.Forms.Label()
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -73,6 +73,16 @@ Partial Class Residuos
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(466, 458)
         Me.Panel1.TabIndex = 0
+        '
+        'Label8
+        '
+        Me.Label8.AutoSize = True
+        Me.Label8.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Location = New System.Drawing.Point(228, 235)
+        Me.Label8.Name = "Label8"
+        Me.Label8.Size = New System.Drawing.Size(95, 14)
+        Me.Label8.TabIndex = 62
+        Me.Label8.Text = "(YYYY/MM/DD)"
         '
         'txtfecha
         '
@@ -256,16 +266,6 @@ Partial Class Residuos
         Me.Label1.Size = New System.Drawing.Size(128, 25)
         Me.Label1.TabIndex = 38
         Me.Label1.Text = "Ver residuos"
-        '
-        'Label8
-        '
-        Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Georgia", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(228, 235)
-        Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(95, 14)
-        Me.Label8.TabIndex = 62
-        Me.Label8.Text = "(YYYY/MM/DD)"
         '
         'Residuos
         '

@@ -24,6 +24,7 @@ Partial Class Practicas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.PanelMen = New System.Windows.Forms.Panel()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.btnListar = New System.Windows.Forms.Button()
@@ -31,7 +32,6 @@ Partial Class Practicas
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.CBseleccionarPractica = New System.Windows.Forms.ComboBox()
         Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.PanelMen.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -49,6 +49,21 @@ Partial Class Practicas
         Me.PanelMen.Name = "PanelMen"
         Me.PanelMen.Size = New System.Drawing.Size(466, 458)
         Me.PanelMen.TabIndex = 0
+        '
+        'Button2
+        '
+        Me.Button2.BackColor = System.Drawing.Color.Transparent
+        Me.Button2.BackgroundImage = Global.Inventary.My.Resources.Resources.refresh
+        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.Button2.FlatAppearance.BorderSize = 0
+        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button2.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button2.Location = New System.Drawing.Point(423, 32)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(24, 25)
+        Me.Button2.TabIndex = 43
+        Me.Button2.UseVisualStyleBackColor = False
         '
         'LinkLabel2
         '
@@ -115,28 +130,13 @@ Partial Class Practicas
         'CBseleccionarPractica
         '
         Me.CBseleccionarPractica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CBseleccionarPractica.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CBseleccionarPractica.Font = New System.Drawing.Font("Georgia", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CBseleccionarPractica.FormattingEnabled = True
         Me.CBseleccionarPractica.Items.AddRange(New Object() {"1", "2", "3", "4", "5"})
         Me.CBseleccionarPractica.Location = New System.Drawing.Point(22, 32)
         Me.CBseleccionarPractica.Name = "CBseleccionarPractica"
-        Me.CBseleccionarPractica.Size = New System.Drawing.Size(232, 31)
+        Me.CBseleccionarPractica.Size = New System.Drawing.Size(232, 26)
         Me.CBseleccionarPractica.TabIndex = 16
-        '
-        'Button2
-        '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.BackgroundImage = Global.Inventary.My.Resources.Resources.refresh
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(423, 32)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(24, 25)
-        Me.Button2.TabIndex = 43
-        Me.Button2.UseVisualStyleBackColor = False
         '
         'Practicas
         '

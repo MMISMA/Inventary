@@ -32,10 +32,11 @@ Public Class Register
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnregistrar.Click
         Try
-            If txtContraAdmin.Text = CBcontra.Text Then
-                comandos = New MySqlCommand("INSERT INTO `usuario`(id,nombre,usuario,contraseña,rol)" & Chr(13) &
-                                            "VALUES(@id,@nombre,@usuario,@contraseña,@rol)", conexion)
-                comandos.Parameters.AddWithValue("@id", txtid.Text)
+            If txtnombre.Text = "Administrador" Then
+                MsgBox("Nombre: Administrador, reservado")
+            ElseIf txtContraAdmin.Text = CBcontra.Text Then
+                comandos = New MySqlCommand("INSERT INTO `usuario`(nombre,usuario,contraseña,rol)" & Chr(13) &
+                                            "VALUES(@nombre,@usuario,@contraseña,@rol)", conexion)
                 comandos.Parameters.AddWithValue("@nombre", txtnombre.Text)
                 comandos.Parameters.AddWithValue("@usuario", txtusuario.Text)
                 comandos.Parameters.AddWithValue("@contraseña", txtcontra.Text)
@@ -47,6 +48,7 @@ Public Class Register
                 txtusuario.Text = ""
                 txtcontra.Text = ""
                 txtrol.Text = ""
+                txtContraAdmin.Text = ""
             Else
                 MsgBox("Ingrese la contraseña del Administrador")
             End If
@@ -59,7 +61,6 @@ Public Class Register
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
             conexion.Open()
-            MsgBox("Conexion lograda")
 
             Dim consulta As String
             consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
@@ -84,13 +85,26 @@ Public Class Register
         Inicio.Close()
     End Sub
 
-
     Private Sub btnactualizar_Click(sender As Object, e As EventArgs) Handles btnactualizar.Click
-        Dim actualizar As String
-        actualizar = "UPDATE usuario SET id='" & txtid.Text & "', nombre='" & txtnombre.Text & "', usuario='" & txtusuario.Text & "', contraseña='" & txtcontra.Text & "', rol='" & txtrol.Text & "'WHERE id='" & txtid.Text & "'"
-        comandos = New MySqlCommand(actualizar, conexion)
-        comandos.ExecuteNonQuery()
-        MsgBox("Practica Actualizada")
+        Try
+            If txtnombre.Text = "Administrador" Then
+                MsgBox("No se puede actualizar al administrador")
+            Else
+                Dim actualizar As String
+                actualizar = "UPDATE usuario SET nombre='" & txtnombre.Text & "', usuario='" & txtusuario.Text & "', contraseña='" & txtcontra.Text & "', rol='" & txtrol.Text & "'WHERE nombre='" & txtnombre.Text & "'"
+                comandos = New MySqlCommand(actualizar, conexion)
+                comandos.ExecuteNonQuery()
+                MsgBox("Usuario Actualizado")
+                txtnombre.Text = ""
+                txtusuario.Text = ""
+                txtcontra.Text = ""
+                txtrol.Text = ""
+                txtContraAdmin.Text = ""
+            End If
+        Catch ex As Exception
+            MsgBox("Ingrese todos los datos para actualizar")
+        End Try
+
     End Sub
     Private Sub btneliminar_MouseHover(sender As Object, e As EventArgs) Handles btneliminar.MouseHover
         TTMSG.SetToolTip(btneliminar, "Eliminar un usuario")
@@ -104,10 +118,6 @@ Public Class Register
         TTMSG.SetToolTip(txtcontra, "Ingresa una contraseña")
     End Sub
 
-    Private Sub txtid_MouseHover(sender As Object, e As EventArgs) Handles txtid.MouseHover
-        TTMSG.SetToolTip(txtid, "Ingresa un numero")
-    End Sub
-
     Private Sub txtnombre_MouseHover(sender As Object, e As EventArgs) Handles txtnombre.MouseHover
         TTMSG.SetToolTip(txtnombre, "Ingresa un nombre")
     End Sub
@@ -119,17 +129,23 @@ Public Class Register
         TTMSG.SetToolTip(txtrol, "Ingresa un numero, 1)Administrador 2)Jefe de departamento 3)Asistente")
     End Sub
 
-    Private Sub btnvusuarios_Click(sender As Object, e As EventArgs) Handles btnvusuarios.Click
-        Dim consulta As String
-        consulta = "SELECT * FROM usuario"
-        adaptador = New MySqlDataAdapter(consulta, conexion)
-        datos = New DataSet
-        adaptador.Fill(datos, "usuario")
-        DataGridView1.DataSource = datos
-        DataGridView1.DataMember = "usuario"
+    Private Sub Button4_Click(sender As Object, e As EventArgs)
+        Try
+            Dim consulta As String
+            consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("contraseña")
+            adaptador.Fill(datos.Tables("contraseña"))
+            CBcontra.DataSource = datos.Tables("contraseña")
+            CBcontra.DisplayMember = "contraseña"
+        Catch ex As Exception
+            MsgBox("No se pudo conectar a la base de datos")
+        End Try
+
     End Sub
 
     Private Sub btnactualizar_MouseHover(sender As Object, e As EventArgs) Handles btnactualizar.MouseHover
-        TTMSG.SetToolTip(btnactualizar, "Ingrese el id que se desea actualizar junto con el resto de datos")
+        TTMSG.SetToolTip(btnactualizar, "Ingrese el nombre del usuario que se desea actualizar junto con el resto de datos")
     End Sub
 End Class

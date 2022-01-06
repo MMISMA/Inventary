@@ -28,6 +28,7 @@ Partial Class MenuI
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnCompra = New System.Windows.Forms.Button()
         Me.Button5 = New System.Windows.Forms.Button()
         Me.Button7 = New System.Windows.Forms.Button()
         Me.Button6 = New System.Windows.Forms.Button()
@@ -35,7 +36,6 @@ Partial Class MenuI
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.PanelMenu = New System.Windows.Forms.Panel()
-        Me.Button8 = New System.Windows.Forms.Button()
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
@@ -89,7 +89,7 @@ Partial Class MenuI
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.Button8)
+        Me.Panel1.Controls.Add(Me.btnCompra)
         Me.Panel1.Controls.Add(Me.Button5)
         Me.Panel1.Controls.Add(Me.Button7)
         Me.Panel1.Controls.Add(Me.Button6)
@@ -100,6 +100,20 @@ Partial Class MenuI
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(115, 480)
         Me.Panel1.TabIndex = 34
+        '
+        'btnCompra
+        '
+        Me.btnCompra.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.btnCompra.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCompra.FlatAppearance.BorderSize = 0
+        Me.btnCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCompra.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCompra.Location = New System.Drawing.Point(0, 334)
+        Me.btnCompra.Name = "btnCompra"
+        Me.btnCompra.Size = New System.Drawing.Size(115, 51)
+        Me.btnCompra.TabIndex = 41
+        Me.btnCompra.Text = "Compra"
+        Me.btnCompra.UseVisualStyleBackColor = False
         '
         'Button5
         '
@@ -192,20 +206,6 @@ Partial Class MenuI
         Me.PanelMenu.Size = New System.Drawing.Size(466, 458)
         Me.PanelMenu.TabIndex = 35
         '
-        'Button8
-        '
-        Me.Button8.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button8.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button8.FlatAppearance.BorderSize = 0
-        Me.Button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button8.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Location = New System.Drawing.Point(0, 334)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(115, 51)
-        Me.Button8.TabIndex = 41
-        Me.Button8.Text = "Compra"
-        Me.Button8.UseVisualStyleBackColor = False
-        '
         'MenuI
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -239,5 +239,5 @@ Partial Class MenuI
     Friend WithEvents Button6 As Button
     Friend WithEvents Button4 As Button
     Friend WithEvents Button5 As Button
-    Friend WithEvents Button8 As Button
+    Friend WithEvents btnCompra As Button
 End Class

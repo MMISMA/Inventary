@@ -4,7 +4,6 @@ Public Class Practicas
     Dim conexion As New MySqlConnection
     Dim adaptador As New MySqlDataAdapter
     Dim datos As New DataSet
-    Dim comandos As New MySqlCommand
 
     Private Sub Practicas_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try

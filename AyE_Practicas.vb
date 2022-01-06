@@ -1,10 +1,7 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class AyE_Practicas
-
     Dim conexion As New MySqlConnection
-    Dim adaptador As New MySqlDataAdapter
-    Dim datos As New DataSet
     Dim comandos As New MySqlCommand
 
     Dim puntoX, puntoY As Integer
@@ -33,7 +30,6 @@ Public Class AyE_Practicas
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
             conexion.Open()
-            'MsgBox("Conexion lograda")
         Catch ex As Exception
             MsgBox("No se conecto con la base de datos", ex.Message)
         End Try

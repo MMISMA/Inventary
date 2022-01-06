@@ -32,7 +32,6 @@ Public Class AyEReactivos
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
             conexion.Open()
-            'MsgBox("Conexion lograda")
             Dim consulta As String
             consulta = "SELECT id FROM practica"
             adaptador = New MySqlDataAdapter(consulta, conexion)
@@ -126,7 +125,6 @@ Public Class AyEReactivos
         Catch ex As Exception
             MsgBox("Reactivo o practica no valida", ex.Message)
         End Try
-
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
@@ -139,7 +137,6 @@ Public Class AyEReactivos
             adaptador.Fill(datos.Tables("id"))
             CBPractica.DataSource = datos.Tables("id")
             CBPractica.DisplayMember = "id"
-
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try

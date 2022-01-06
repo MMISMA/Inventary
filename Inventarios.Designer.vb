@@ -22,18 +22,22 @@ Partial Class Inventarios
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.btnCompras = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
         '
+        Me.Panel1.Controls.Add(Me.btnCompras)
         Me.Panel1.Controls.Add(Me.Button3)
         Me.Panel1.Controls.Add(Me.Button2)
         Me.Panel1.Controls.Add(Me.Button1)
@@ -44,6 +48,20 @@ Partial Class Inventarios
         Me.Panel1.Size = New System.Drawing.Size(466, 458)
         Me.Panel1.TabIndex = 1
         '
+        'btnCompras
+        '
+        Me.btnCompras.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnCompras.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnCompras.FlatAppearance.BorderSize = 0
+        Me.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCompras.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCompras.Location = New System.Drawing.Point(355, 45)
+        Me.btnCompras.Name = "btnCompras"
+        Me.btnCompras.Size = New System.Drawing.Size(95, 33)
+        Me.btnCompras.TabIndex = 26
+        Me.btnCompras.Text = "Compras"
+        Me.btnCompras.UseVisualStyleBackColor = False
+        '
         'Button3
         '
         Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -51,7 +69,7 @@ Partial Class Inventarios
         Me.Button3.FlatAppearance.BorderSize = 0
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button3.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(354, 45)
+        Me.Button3.Location = New System.Drawing.Point(250, 45)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(95, 33)
         Me.Button3.TabIndex = 25
@@ -65,7 +83,7 @@ Partial Class Inventarios
         Me.Button2.FlatAppearance.BorderSize = 0
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button2.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(189, 45)
+        Me.Button2.Location = New System.Drawing.Point(145, 45)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(99, 33)
         Me.Button2.TabIndex = 24
@@ -79,7 +97,7 @@ Partial Class Inventarios
         Me.Button1.FlatAppearance.BorderSize = 0
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Button1.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(24, 45)
+        Me.Button1.Location = New System.Drawing.Point(20, 45)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(119, 33)
         Me.Button1.TabIndex = 23
@@ -130,4 +148,6 @@ Partial Class Inventarios
     Friend WithEvents Label1 As Label
     Friend WithEvents Button3 As Button
     Friend WithEvents Button2 As Button
+    Friend WithEvents btnCompras As Button
+    Friend WithEvents TTMSG As ToolTip
 End Class

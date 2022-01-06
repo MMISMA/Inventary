@@ -2,14 +2,15 @@
 Imports System.IO
 
 Public Class Compra
-    Dim comandos As New MySqlCommand()
+    Dim comandos As New MySqlCommand
     Dim conexion As New MySqlConnection
+
+    Dim filefoto As String
 
     Private Sub Compra_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
-            conexion.Open()
-            MsgBox("Conexion lograda")
+
         Catch ex As Exception
             MsgBox("No se pudo conectar a la base de datos", ex.Message)
         End Try
@@ -17,30 +18,46 @@ Public Class Compra
 
     Private Sub btnsubir_Click(sender As Object, e As EventArgs) Handles btnsubir.Click
         Try
-            Dim opf As New OpenFileDialog
-            opf.Filter = "Escoje una imagen(*.JPG;*.PNG;*.GIF)|*.jpg;*.png;*.gif"
+            OFDcargar.Filter = "PNG |*.png|GIF |*.gif|JPG |*.jpg"
+            OFDcargar.FileName = "Cargar Foto"
+            OFDcargar.Title = "Subir archivo"
 
-            If opf.ShowDialog = Windows.Forms.DialogResult.OK Then
-                Pfotos.Image = Image.FromFile(opf.FileName)
+            If OFDcargar.ShowDialog = Windows.Forms.DialogResult.OK Then
+                filefoto = OFDcargar.FileName
+                Pfotos.Image = System.Drawing.Image.FromFile(filefoto)
             End If
         Catch ex As Exception
-            MsgBox("Error al subir la imagen")
+            MsgBox("Error al subir la foto")
+            MsgBox(ex.Message)
         End Try
     End Sub
 
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         Try
-            Dim ms As New MemoryStream
-            Pfotos.Image.Save(ms, Pfotos.Image.RawFormat)
-            comandos = New MySqlCommand("INSERT INTO `compra`(id,fecha, info)" & Chr(13) &
-                                        "VALUES (@id,@fecha,@info)", conexion)
+            Dim sql As String
+            Dim ft As MemoryStream = New MemoryStream()
+            Dim fs As FileStream = New FileStream(filefoto, FileMode.Open, FileAccess.Read, FileShare.ReadWrite)
+            ft.SetLength(fs.Length)
+            fs.Read(ft.GetBuffer(), 0, CInt(fs.Length))
+            Dim imgcon As Byte() = ft.GetBuffer()
+            fs.Close()
+
+            conexion.Open()
+            sql = "INSERT INTO compra(id,fecha,imagen) VALUES (@id,@fecha,@imagen)"
+            comandos = New MySqlCommand(sql, conexion)
             comandos.Parameters.AddWithValue("@id", txtid.Text)
             comandos.Parameters.AddWithValue("@fecha", txtfecha.Text)
-            comandos.Parameters.Add("@info", MySqlDbType.Blob).Value = ms.ToArray()
+            comandos.Parameters.Add("@imagen", MySqlDbType.VarBinary).Value = imgcon
+
             comandos.ExecuteNonQuery()
-            MsgBox("Imagen ingresada correctamente")
+            conexion.Close()
+            Pfotos.Image = Nothing
+            MsgBox("Imagen guardada correctamente")
+            txtid.Text = ""
+            txtfecha.Text = ""
         Catch ex As Exception
-            MsgBox("No se ingreso la imagen ", ex.Message)
+            conexion.Close()
+            MsgBox(ex.Message)
         End Try
     End Sub
 
@@ -62,5 +79,9 @@ Public Class Compra
 
     Private Sub txtid_MouseHover(sender As Object, e As EventArgs) Handles txtid.MouseHover
         TTMSG.SetToolTip(txtid, "Ingrese el numero de recibo")
+    End Sub
+
+    Private Sub LinkLabel1_MouseHover(sender As Object, e As EventArgs) Handles LinkLabel1.MouseHover
+        TTMSG.SetToolTip(LinkLabel1, "Ir a ver las compras")
     End Sub
 End Class

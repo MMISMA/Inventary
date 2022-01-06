@@ -39,6 +39,7 @@ Partial Class Inicio
         Me.CBusuario = New System.Windows.Forms.ComboBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -247,4 +248,5 @@ Partial Class Inicio
     Friend WithEvents Button3 As Button
     Friend WithEvents CBusuario As ComboBox
     Friend WithEvents Button4 As Button
+    Friend WithEvents TTMSG As ToolTip
 End Class

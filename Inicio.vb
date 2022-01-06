@@ -1,5 +1,4 @@
-﻿Imports MySql.Data
-Imports MySql.Data.MySqlClient
+﻿Imports MySql.Data.MySqlClient
 
 Public Class Inicio
     Dim conexion As New MySqlConnection
@@ -74,6 +73,26 @@ Public Class Inicio
         End If
     End Sub
 
+    Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
+            conexion.Open()
+            MsgBox("Conexion lograda")
+            Dim consulta As String
+            consulta = "SELECT * FROM usuario"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("usuario")
+            adaptador.Fill(datos.Tables("usuario"))
+            CBusuario.DataSource = datos.Tables("usuario")
+            CBusuario.DisplayMember = "usuario"
+
+        Catch ex As Exception
+            MsgBox("No se pudo conectar a la Base de Datos")
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Private Sub Button3_Click_1(sender As Object, e As EventArgs) Handles Button3.Click
         Dim consulta As String
         Dim lista As Byte
@@ -106,25 +125,17 @@ Public Class Inicio
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-
     End Sub
 
-    Private Sub Inicio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
-            conexion.Open()
-            MsgBox("Conexion lograda")
-            Dim consulta As String
-            consulta = "SELECT * FROM usuario"
-            adaptador = New MySqlDataAdapter(consulta, conexion)
-            datos = New DataSet
-            datos.Tables.Add("usuario")
-            adaptador.Fill(datos.Tables("usuario"))
-            CBusuario.DataSource = datos.Tables("usuario")
-            CBusuario.DisplayMember = "usuario"
+    Private Sub txtcontra_MouseHover(sender As Object, e As EventArgs) Handles txtcontra.MouseHover
+        TTMSG.SetToolTip(txtcontra, "Ingrese la contraseña del usuario seleccionado")
+    End Sub
 
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
+    Private Sub LinkLabel1_MouseHover(sender As Object, e As EventArgs) Handles LinkLabel1.MouseHover
+        TTMSG.SetToolTip(LinkLabel1, "Ir a reistrar o modificar usuarios")
+    End Sub
+
+    Private Sub Button4_MouseHover(sender As Object, e As EventArgs) Handles Button4.MouseHover
+        TTMSG.SetToolTip(Button4, "Recargar los usuarios disponibles")
     End Sub
 End Class

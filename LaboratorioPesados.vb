@@ -10,20 +10,26 @@ Public Class LaboratorioPesados
         Try
             conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
             conexion.Open()
-            MsgBox("Conexion lograda")
         Catch ex As Exception
+            MsgBox("No se pudo conectar a la base de datos")
             MsgBox(ex.Message)
         End Try
     End Sub
 
     Private Sub btnver_Click(sender As Object, e As EventArgs) Handles btnver.Click
-        Dim consulta As String
-        consulta = "SELECT * FROM inventario_l_pesados"
-        adaptador = New MySqlDataAdapter(consulta, conexion)
-        datos = New DataSet
-        adaptador.Fill(datos, "inventario_l_pesados")
-        DataGridView1.DataSource = datos
-        DataGridView1.DataMember = "inventario_l_pesados"
+        Try
+            Dim consulta As String
+            consulta = "SELECT * FROM inventario_l_pesados"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            adaptador.Fill(datos, "inventario_l_pesados")
+            DataGridView1.DataSource = datos
+            DataGridView1.DataMember = "inventario_l_pesados"
+        Catch ex As Exception
+            MsgBox("No se pudo comuncar con a la base de datos")
+            MsgBox(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub btnañadir_Click(sender As Object, e As EventArgs) Handles btnañadir.Click
@@ -57,28 +63,19 @@ Public Class LaboratorioPesados
             txtantiguedad.Text = ""
             txttipo.Text = ""
         Catch ex As Exception
+            MsgBox("No se pudo comunicar con a la base de datos, no se ingreso")
             MsgBox(ex.Message)
         End Try
     End Sub
 
     Private Sub btnActualizar_Click(sender As Object, e As EventArgs) Handles btnActualizar.Click
-        Dim actualizar As String
-        actualizar = "UPDATE inventario_l_pesados SET nombre='" & txtnombre.Text & "', marca='" & txtmarca.Text & "', modelo='" & txtmodelo.Text & "', num_serie='" & txtnserie.Text & "', uso='" & txtuso.Text & "', clave_patrimonial='" & txtcpatrimonial.Text & "', guia_y_manual='" & txtguiaymanual.Text & "', observaciones='" & txtobservaciones.Text & "', laboratorio='" & txtlab.Text & "', antiguedad='" & txtantiguedad.Text & "',tipo='" & txttipo.Text & "'WHERE codigo='" & txtcodigo.Text & "'"
-        comandos = New MySqlCommand(actualizar, conexion)
-        comandos.ExecuteNonQuery()
-        MsgBox("Reactivo Actualizada")
-    End Sub
-
-    Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
-        Dim eliminar As String
-        Dim si As Byte
-
-        si = MsgBox("¿Desea eliminar: " & txtcodigo.Text, vbYesNo, "Eliminar")
-        If si = 6 Then
-            eliminar = "DELETE FROM inventario_l_pesados WHERE codigo='" & txtcodigo.Text & "'"
-            comandos = New MySqlCommand(eliminar, conexion)
+        Try
+            Dim actualizar As String
+            actualizar = "UPDATE inventario_l_pesados SET nombre='" & txtnombre.Text & "', marca='" & txtmarca.Text & "', modelo='" & txtmodelo.Text & "', num_serie='" & txtnserie.Text & "', uso='" & txtuso.Text & "', clave_patrimonial='" & txtcpatrimonial.Text & "', guia_y_manual='" & txtguiaymanual.Text & "', observaciones='" & txtobservaciones.Text & "', laboratorio='" & txtlab.Text & "', antiguedad='" & txtantiguedad.Text & "',tipo='" & txttipo.Text & "'WHERE codigo='" & txtcodigo.Text & "'"
+            comandos = New MySqlCommand(actualizar, conexion)
             comandos.ExecuteNonQuery()
-            MsgBox(txtcodigo.Text & " ha sido eliminado")
+            MsgBox("Actualizada")
+            txtcodigo.Text = ""
             txtnombre.Text = ""
             txtmarca.Text = ""
             txtmodelo.Text = ""
@@ -90,7 +87,39 @@ Public Class LaboratorioPesados
             txtlab.Text = ""
             txtantiguedad.Text = ""
             txttipo.Text = ""
-        End If
+        Catch ex As Exception
+            MsgBox("No se pudo comunicar con a la base de datos, no se actualizo")
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
+    Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
+        Try
+            Dim eliminar As String
+            Dim si As Byte
+
+            si = MsgBox("¿Desea eliminar: " & txtcodigo.Text, vbYesNo, "Eliminar")
+            If si = 6 Then
+                eliminar = "DELETE FROM inventario_l_pesados WHERE codigo='" & txtcodigo.Text & "'"
+                comandos = New MySqlCommand(eliminar, conexion)
+                comandos.ExecuteNonQuery()
+                MsgBox(txtcodigo.Text & " ha sido eliminado")
+                txtnombre.Text = ""
+                txtmarca.Text = ""
+                txtmodelo.Text = ""
+                txtnserie.Text = ""
+                txtuso.Text = ""
+                txtcpatrimonial.Text = ""
+                txtguiaymanual.Text = ""
+                txtobservaciones.Text = ""
+                txtlab.Text = ""
+                txtantiguedad.Text = ""
+                txttipo.Text = ""
+            End If
+        Catch ex As Exception
+            MsgBox("No se pudo comuncar con a la base de datos, No se elimino")
+            MsgBox(ex.Message)
+        End Try
     End Sub
 
     Private Sub btnActualizar_MouseHover(sender As Object, e As EventArgs) Handles btnActualizar.MouseHover
@@ -103,5 +132,52 @@ Public Class LaboratorioPesados
 
     Private Sub btneliminar_MouseHover(sender As Object, e As EventArgs) Handles btneliminar.MouseHover
         TTMSG.SetToolTip(btneliminar, "Ingresa el codigo a Eliminar")
+    End Sub
+
+    Private Sub btnver_MouseHover(sender As Object, e As EventArgs) Handles btnver.MouseHover
+        TTMSG.SetToolTip(btnver, "Ver todo dentro de Pesados")
+    End Sub
+    Private Sub txtcodigo_MouseHover(sender As Object, e As EventArgs) Handles txtcodigo.MouseHover
+        TTMSG.SetToolTip(txtcodigo, "Ingresa el codigo")
+    End Sub
+
+    Private Sub txtantiguedad_MouseHover(sender As Object, e As EventArgs) Handles txtantiguedad.MouseHover
+        TTMSG.SetToolTip(txtantiguedad, "Ingresa la antiguedad")
+    End Sub
+
+    Private Sub txtnombre_MouseHover(sender As Object, e As EventArgs) Handles txtnombre.MouseHover
+        TTMSG.SetToolTip(txtnombre, "Ingresa el nombre")
+    End Sub
+
+    Private Sub txtmodelo_MouseHover(sender As Object, e As EventArgs) Handles txtmodelo.MouseHover
+        TTMSG.SetToolTip(txtmodelo, "Ingresa el Modelo")
+    End Sub
+
+    Private Sub txtnserie_MouseHover(sender As Object, e As EventArgs) Handles txtnserie.MouseHover
+        TTMSG.SetToolTip(txtnserie, "Ingresa el Numero de Serie")
+    End Sub
+
+    Private Sub txtuso_MouseHover(sender As Object, e As EventArgs) Handles txtuso.MouseHover
+        TTMSG.SetToolTip(txtuso, "Ingresa el Uso")
+    End Sub
+
+    Private Sub txtcpatrimonial_MouseHover(sender As Object, e As EventArgs) Handles txtcpatrimonial.MouseHover
+        TTMSG.SetToolTip(txtcpatrimonial, "Ingresa la Clave Patrimonial")
+    End Sub
+
+    Private Sub txtguiaymanual_MouseHover(sender As Object, e As EventArgs) Handles txtguiaymanual.MouseHover
+        TTMSG.SetToolTip(txtguiaymanual, "Ingresa la guia y/o manual")
+    End Sub
+
+    Private Sub txtobservaciones_MouseHover(sender As Object, e As EventArgs) Handles txtobservaciones.MouseHover
+        TTMSG.SetToolTip(txtobservaciones, "Ingresa las observaciones")
+    End Sub
+
+    Private Sub txtlab_MouseHover(sender As Object, e As EventArgs) Handles txtlab.MouseHover
+        TTMSG.SetToolTip(txtlab, "Ingresa el laboratorio")
+    End Sub
+
+    Private Sub txttipo_MouseHover(sender As Object, e As EventArgs) Handles txttipo.MouseHover
+        TTMSG.SetToolTip(txttipo, "Ingresa el tipo")
     End Sub
 End Class

@@ -24,11 +24,11 @@ Partial Class Practicas
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.PanelMen = New System.Windows.Forms.Panel()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnrecargar = New System.Windows.Forms.Button()
         Me.LinkLabel2 = New System.Windows.Forms.LinkLabel()
         Me.LinkLabel1 = New System.Windows.Forms.LinkLabel()
         Me.btnListar = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnverpractica = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.CBseleccionarPractica = New System.Windows.Forms.ComboBox()
         Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
@@ -38,11 +38,11 @@ Partial Class Practicas
         '
         'PanelMen
         '
-        Me.PanelMen.Controls.Add(Me.Button2)
+        Me.PanelMen.Controls.Add(Me.btnrecargar)
         Me.PanelMen.Controls.Add(Me.LinkLabel2)
         Me.PanelMen.Controls.Add(Me.LinkLabel1)
         Me.PanelMen.Controls.Add(Me.btnListar)
-        Me.PanelMen.Controls.Add(Me.Button1)
+        Me.PanelMen.Controls.Add(Me.btnverpractica)
         Me.PanelMen.Controls.Add(Me.DataGridView1)
         Me.PanelMen.Controls.Add(Me.CBseleccionarPractica)
         Me.PanelMen.Location = New System.Drawing.Point(0, 0)
@@ -50,20 +50,20 @@ Partial Class Practicas
         Me.PanelMen.Size = New System.Drawing.Size(466, 458)
         Me.PanelMen.TabIndex = 0
         '
-        'Button2
+        'btnrecargar
         '
-        Me.Button2.BackColor = System.Drawing.Color.Transparent
-        Me.Button2.BackgroundImage = Global.Inventary.My.Resources.Resources.refresh
-        Me.Button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.Button2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.Location = New System.Drawing.Point(423, 32)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(24, 25)
-        Me.Button2.TabIndex = 43
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnrecargar.BackColor = System.Drawing.Color.Transparent
+        Me.btnrecargar.BackgroundImage = Global.Inventary.My.Resources.Resources.refresh
+        Me.btnrecargar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.btnrecargar.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnrecargar.FlatAppearance.BorderSize = 0
+        Me.btnrecargar.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnrecargar.Font = New System.Drawing.Font("Georgia", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnrecargar.Location = New System.Drawing.Point(423, 32)
+        Me.btnrecargar.Name = "btnrecargar"
+        Me.btnrecargar.Size = New System.Drawing.Size(24, 25)
+        Me.btnrecargar.TabIndex = 43
+        Me.btnrecargar.UseVisualStyleBackColor = False
         '
         'LinkLabel2
         '
@@ -103,19 +103,19 @@ Partial Class Practicas
         Me.btnListar.Text = "Listar reactivos"
         Me.btnListar.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnverpractica
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Button1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(260, 12)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(152, 32)
-        Me.Button1.TabIndex = 19
-        Me.Button1.Text = "Ver practica"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnverpractica.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnverpractica.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnverpractica.FlatAppearance.BorderSize = 0
+        Me.btnverpractica.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnverpractica.Font = New System.Drawing.Font("Georgia", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnverpractica.Location = New System.Drawing.Point(260, 12)
+        Me.btnverpractica.Name = "btnverpractica"
+        Me.btnverpractica.Size = New System.Drawing.Size(152, 32)
+        Me.btnverpractica.TabIndex = 19
+        Me.btnverpractica.Text = "Ver practica"
+        Me.btnverpractica.UseVisualStyleBackColor = False
         '
         'DataGridView1
         '
@@ -159,10 +159,10 @@ Partial Class Practicas
     Friend WithEvents PanelMen As Panel
     Friend WithEvents CBseleccionarPractica As ComboBox
     Friend WithEvents DataGridView1 As DataGridView
-    Friend WithEvents Button1 As Button
+    Friend WithEvents btnverpractica As Button
     Friend WithEvents TTMSG As ToolTip
     Friend WithEvents btnListar As Button
     Friend WithEvents LinkLabel2 As LinkLabel
     Friend WithEvents LinkLabel1 As LinkLabel
-    Friend WithEvents Button2 As Button
+    Friend WithEvents btnrecargar As Button
 End Class

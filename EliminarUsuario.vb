@@ -35,6 +35,32 @@ Public Class EliminarUsuario
         End If
     End Sub
 
+    Private Sub EliminarUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
+            conexion.Open()
+
+            Dim consulta As String
+            consulta = "SELECT * FROM usuario"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("usuario")
+            adaptador.Fill(datos.Tables("usuario"))
+            CBusuario.DataSource = datos.Tables("usuario")
+            CBusuario.DisplayMember = "usuario"
+
+            consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("contraseña")
+            adaptador.Fill(datos.Tables("contraseña"))
+            CBcontra.DataSource = datos.Tables("contraseña")
+            CBcontra.DisplayMember = "contraseña"
+        Catch ex As Exception
+            MsgBox("No se conecto con la base de datos", ex.Message)
+        End Try
+    End Sub
+
     Private Sub btneliminar_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
         Try
             If CBusuario.Text = "Admin" Then
@@ -59,38 +85,6 @@ Public Class EliminarUsuario
         End Try
     End Sub
 
-    Private Sub EliminarUsuario_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
-            conexion.Open()
-            'MsgBox("Conexion lograda")
-
-            Dim consulta As String
-            consulta = "SELECT * FROM usuario"
-            adaptador = New MySqlDataAdapter(consulta, conexion)
-            datos = New DataSet
-            datos.Tables.Add("usuario")
-            adaptador.Fill(datos.Tables("usuario"))
-            CBusuario.DataSource = datos.Tables("usuario")
-            CBusuario.DisplayMember = "usuario"
-
-            consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
-            adaptador = New MySqlDataAdapter(consulta, conexion)
-            datos = New DataSet
-            datos.Tables.Add("contraseña")
-            adaptador.Fill(datos.Tables("contraseña"))
-            CBcontra.DataSource = datos.Tables("contraseña")
-            CBcontra.DisplayMember = "contraseña"
-        Catch ex As Exception
-            MsgBox("No se conecto con la base de datos", ex.Message)
-        End Try
-    End Sub
-
-    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
-        Register.Show()
-        Me.Hide()
-    End Sub
-
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Try
             Dim consulta As String
@@ -106,8 +100,24 @@ Public Class EliminarUsuario
         End Try
 
     End Sub
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        Register.Show()
+        Me.Hide()
 
+    End Sub
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Me.Close()
+    End Sub
+
+    Private Sub btneliminar_MouseHover(sender As Object, e As EventArgs) Handles btneliminar.MouseHover
+        TTMSG.SetToolTip(btneliminar, "Eliminar a un usuario")
+    End Sub
+
+    Private Sub txtContraAdmin_MouseHover(sender As Object, e As EventArgs) Handles txtContraAdmin.MouseHover
+        TTMSG.SetToolTip(txtContraAdmin, "Ingrese la contraseña del administrador")
+    End Sub
+
+    Private Sub LinkLabel1_MouseHover(sender As Object, e As EventArgs) Handles LinkLabel1.MouseHover
+        TTMSG.SetToolTip(LinkLabel1, "Regresar a Registrar usuario")
     End Sub
 End Class

@@ -40,6 +40,7 @@ Partial Class EliminarUsuario
         Me.txtContraAdmin = New System.Windows.Forms.TextBox()
         Me.CBcontra = New System.Windows.Forms.ComboBox()
         Me.LBadmin = New System.Windows.Forms.Label()
+        Me.TTMSG = New System.Windows.Forms.ToolTip(Me.components)
         Me.Panel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -258,4 +259,5 @@ Partial Class EliminarUsuario
     Friend WithEvents txtContraAdmin As TextBox
     Friend WithEvents CBcontra As ComboBox
     Friend WithEvents LBadmin As Label
+    Friend WithEvents TTMSG As ToolTip
 End Class

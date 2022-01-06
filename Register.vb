@@ -30,6 +30,25 @@ Public Class Register
         Me.Hide()
     End Sub
 
+    Private Sub Register_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Try
+            conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
+            conexion.Open()
+
+            Dim consulta As String
+            consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
+            adaptador = New MySqlDataAdapter(consulta, conexion)
+            datos = New DataSet
+            datos.Tables.Add("contraseña")
+            adaptador.Fill(datos.Tables("contraseña"))
+            CBcontra.DataSource = datos.Tables("contraseña")
+            CBcontra.DisplayMember = "contraseña"
+        Catch ex As Exception
+            MsgBox("No se pudo conectar a la Base de Datos")
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnregistrar.Click
         Try
             If txtnombre.Text = "Administrador" Then
@@ -52,36 +71,9 @@ Public Class Register
                 MsgBox("Ingrese la contraseña del Administrador")
             End If
         Catch ex As Exception
+            MsgBox("No se pudo comunicar con la Base de Datos, no se registro")
             MsgBox(ex.Message)
         End Try
-    End Sub
-
-    Private Sub Register_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Try
-            conexion.ConnectionString = "server= www.db4free.net; user=mmismael; password=12345678;database=inventary"
-            conexion.Open()
-
-            Dim consulta As String
-            consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
-            adaptador = New MySqlDataAdapter(consulta, conexion)
-            datos = New DataSet
-            datos.Tables.Add("contraseña")
-            adaptador.Fill(datos.Tables("contraseña"))
-            CBcontra.DataSource = datos.Tables("contraseña")
-            CBcontra.DisplayMember = "contraseña"
-        Catch ex As Exception
-            MsgBox(ex.Message)
-        End Try
-    End Sub
-
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
-        EliminarUsuario.Show()
-        Me.Hide()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Me.Close()
-        Inicio.Close()
     End Sub
 
     Private Sub btnactualizar_Click(sender As Object, e As EventArgs) Handles btnactualizar.Click
@@ -104,18 +96,29 @@ Public Class Register
             Else
                 MsgBox("Ingrese la contraseña del Administrador")
             End If
-
         Catch ex As Exception
             MsgBox("Ingrese todos los datos para actualizar")
         End Try
-
     End Sub
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btneliminar.Click
+        EliminarUsuario.Show()
+        Me.Hide()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+        Inicio.Close()
+    End Sub
+    Private Sub btnregistrar_MouseHover(sender As Object, e As EventArgs) Handles btnregistrar.MouseHover
+        TTMSG.SetToolTip(btnregistrar, "Ingrese el todos los datos para registrar usuario")
+    End Sub
+    Private Sub btnactualizar_MouseHover(sender As Object, e As EventArgs) Handles btnactualizar.MouseHover
+        TTMSG.SetToolTip(btnactualizar, "Ingrese el nombre del usuario que se desea actualizar junto con el resto de datos")
+    End Sub
+
     Private Sub btneliminar_MouseHover(sender As Object, e As EventArgs) Handles btneliminar.MouseHover
         TTMSG.SetToolTip(btneliminar, "Eliminar un usuario")
-    End Sub
-
-    Private Sub btnregistrar_MouseHover(sender As Object, e As EventArgs) Handles btnregistrar.MouseHover
-        TTMSG.SetToolTip(btneliminar, "Para registrar ingresa todos los datos")
     End Sub
 
     Private Sub txtcontra_MouseHover(sender As Object, e As EventArgs) Handles txtcontra.MouseHover
@@ -133,23 +136,7 @@ Public Class Register
         TTMSG.SetToolTip(txtrol, "Ingresa un numero, 1)Administrador 2)Jefe de departamento 3)Asistente")
     End Sub
 
-    Private Sub Button4_Click(sender As Object, e As EventArgs)
-        Try
-            Dim consulta As String
-            consulta = "SELECT contraseña FROM usuario WHERE nombre ='" & LBadmin.Text & "'"
-            adaptador = New MySqlDataAdapter(consulta, conexion)
-            datos = New DataSet
-            datos.Tables.Add("contraseña")
-            adaptador.Fill(datos.Tables("contraseña"))
-            CBcontra.DataSource = datos.Tables("contraseña")
-            CBcontra.DisplayMember = "contraseña"
-        Catch ex As Exception
-            MsgBox("No se pudo conectar a la base de datos")
-        End Try
-
-    End Sub
-
-    Private Sub btnactualizar_MouseHover(sender As Object, e As EventArgs) Handles btnactualizar.MouseHover
-        TTMSG.SetToolTip(btnactualizar, "Ingrese el nombre del usuario que se desea actualizar junto con el resto de datos")
+    Private Sub txtContraAdmin_MouseHover(sender As Object, e As EventArgs) Handles txtContraAdmin.MouseHover
+        TTMSG.SetToolTip(txtContraAdmin, "Ingrese la contraseña del admin para añadir, actualizar o eliminar")
     End Sub
 End Class
